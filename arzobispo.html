@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arzobispo de Chihuahua | Catedral Metropolitana</title>
+  <meta name="description" content="Conoce la semblanza de Mons. Constancio Miranda Weckmann, Arzobispo de Chihuahua." />
+  <style>
+    @font-face {
+      font-family: 'CharterCustom';
+      src: url('src/fonts/Charter Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'CharterCustom';
+      src: url('src/fonts/Charter Regular.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'CharterCustom';
+      src: url('src/fonts/Charter Regular.ttf') format('truetype');
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'SnellRoundhandCustom';
+      src: url('src/fonts/Snell Roundhand Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #f5f2ea;
+      --bg-soft: #efede6;
+      --cream: #f8f4eb;
+      --sand: #c6b98f;
+      --gold: #8a7243;
+      --gold-dark: #6f5a34;
+      --brown: #33241a;
+      --brown-soft: #5b4337;
+      --text: #4d4035;
+      --line: rgba(112, 90, 52, 0.22);
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(32, 22, 12, 0.12);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'CharterCustom', Georgia, serif;
+      line-height: 1.55;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 24px;
+      border: 1px solid rgba(255,255,255,0.5);
+      background: transparent;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.72);
+    }
+
+    .btn--dark-outline {
+      color: var(--gold-dark);
+      border-color: rgba(111, 90, 52, 0.35);
+      background: transparent;
+    }
+
+    .btn--dark-outline:hover {
+      background: rgba(111, 90, 52, 0.06);
+      border-color: rgba(111, 90, 52, 0.55);
+    }
+
+    .section { padding: 88px 0; }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: clamp(2.2rem, 3.2vw, 3.2rem);
+      line-height: 1.05;
+      color: var(--brown-soft);
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      margin: 0;
+      font-size: 1.08rem;
+      color: rgba(77, 64, 53, 0.85);
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(17,14,11,0.58), rgba(17,14,11,0.2));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 16px 0;
+    }
+
+    .brand img {
+      width: 176px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0.96;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: transparent;
+      color: var(--white);
+      min-height: 42px;
+      padding: 0 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(126,39,42,0.28), transparent 28%),
+        linear-gradient(90deg, rgba(18,13,10,0.82) 0%, rgba(18,13,10,0.42) 38%, rgba(18,13,10,0.18) 100%),
+        linear-gradient(180deg, rgba(18,13,10,0.3) 0%, rgba(18,13,10,0.22) 46%, rgba(18,13,10,0.62) 100%),
+        url('src/img/Sección 1 Background (1).webp') center center / cover no-repeat;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: minmax(280px, 560px) 1fr;
+      gap: 24px;
+      align-items: center;
+      min-height: calc(100svh - 86px);
+      padding: 64px 0 72px;
+    }
+
+    .hero-copy {
+      max-width: 540px;
+      padding: 4vh 0 0;
+    }
+
+    .hero-title {
+      margin: 0 0 18px;
+      font-size: clamp(3rem, 6.6vw, 5.8rem);
+      line-height: 0.94;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 34px;
+      font-size: clamp(1.1rem, 1.8vw, 1.42rem);
+      color: rgba(255,255,255,0.92);
+    }
+
+    .bio-intro {
+      background: #f2f1e9;
+    }
+
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .portrait-frame {
+      background: var(--white);
+      border: 6px solid var(--gold);
+      box-shadow: var(--shadow);
+      max-width: 430px;
+    }
+
+    .bio-card h2 {
+      margin: 0 0 24px;
+      font-size: clamp(2.2rem, 3vw, 3rem);
+      color: var(--brown-soft);
+      line-height: 1.05;
+    }
+
+    .bio-points {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .bio-points li {
+      position: relative;
+      padding-left: 22px;
+      font-size: 1.1rem;
+    }
+
+    .bio-points li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #d7c38e;
+    }
+
+    .timeline {
+      background: #f7f7f5;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px 70px;
+    }
+
+    .timeline-card {
+      padding-top: 8px;
+    }
+
+    .timeline-card h3 {
+      margin: 0 0 14px;
+      color: #9a6e57;
+      font-size: 1.42rem;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .timeline-card h3::before {
+      content: '▶';
+      font-size: 0.85rem;
+      color: var(--brown-soft);
+      transform: translateY(-1px);
+    }
+
+    .timeline-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .timeline-card li {
+      margin-bottom: 12px;
+      font-size: 1.02rem;
+    }
+
+    .motto {
+      text-align: center;
+      padding-top: 28px;
+      padding-bottom: 110px;
+    }
+
+    .motto-line {
+      width: 68px;
+      height: 2px;
+      background: #8f7450;
+      margin: 0 auto 34px;
+    }
+
+    .motto-quote {
+      margin: 0;
+      font-size: clamp(2.5rem, 4.2vw, 4rem);
+      line-height: 1;
+      color: var(--brown-soft);
+      font-weight: 700;
+    }
+
+    .motto-values {
+      margin-top: 38px;
+      display: flex;
+      justify-content: center;
+      gap: 68px;
+      flex-wrap: wrap;
+      color: #7d5d4a;
+      font-size: 1.24rem;
+    }
+
+    footer {
+      color: var(--white);
+      background: radial-gradient(circle at 20% 30%, rgba(140,97,42,0.22), transparent 32%), linear-gradient(180deg, #2b1d14 0%, #1b120d 100%);
+      padding: 58px 0 42px;
+    }
+
+    .footer-title {
+      text-align: center;
+      margin: 0 0 24px;
+      font-size: 1.12rem;
+      opacity: 0.92;
+      font-style: italic;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .footer-links a {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      opacity: 0.92;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .socials a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.22);
+      display: grid;
+      place-items: center;
+      font-size: 0.92rem;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(14,10,7,0.68);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 60;
+    }
+
+    .modal.active { display: flex; }
+
+    .modal-card {
+      width: min(100%, 980px);
+      max-height: min(88vh, 980px);
+      overflow: auto;
+      background: linear-gradient(180deg, #fbf8f0 0%, #f6f1e7 100%);
+      border: 1px solid rgba(111,90,52,0.18);
+      box-shadow: 0 28px 70px rgba(26, 19, 11, 0.32);
+      position: relative;
+    }
+
+    .modal-close {
+      position: sticky;
+      top: 0;
+      margin-left: auto;
+      width: 48px;
+      height: 48px;
+      border: 0;
+      background: rgba(251,248,240,0.94);
+      cursor: pointer;
+      font-size: 1.7rem;
+      color: var(--gold-dark);
+      z-index: 3;
+      display: block;
+    }
+
+    .modal-hero {
+      padding: 14px 40px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .modal-hero h2 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 3.1vw, 3.1rem);
+      line-height: 1;
+      color: var(--brown-soft);
+    }
+
+    .modal-hero p {
+      margin: 0;
+      font-size: 1.06rem;
+      color: rgba(77, 64, 53, 0.82);
+    }
+
+    .modal-body {
+      padding: 24px 40px 42px;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .modal-image {
+      position: sticky;
+      top: 24px;
+      background: var(--white);
+      border: 5px solid var(--gold);
+      box-shadow: var(--shadow);
+    }
+
+    .modal-copy {
+      font-size: 1.06rem;
+      color: var(--text);
+    }
+
+    .modal-copy p {
+      margin: 0 0 18px;
+    }
+
+    .modal-copy blockquote {
+      margin: 26px 0 0;
+      padding: 22px 24px;
+      background: rgba(198,185,143,0.16);
+      border-left: 3px solid var(--gold);
+      color: var(--brown-soft);
+      font-size: 1.18rem;
+      font-style: italic;
+    }
+
+    @media (max-width: 1080px) {
+      .bio-grid,
+      .hero-content,
+      .modal-body {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-grid {
+        gap: 34px;
+      }
+
+      .portrait-frame { max-width: 420px; }
+      .modal-image { position: static; max-width: 360px; }
+    }
+
+    @media (max-width: 820px) {
+      .menu-toggle { display: inline-flex; align-items: center; }
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 16px 20px 20px;
+        background: rgba(17,14,11,0.96);
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links.active { display: flex; }
+      .timeline-grid { grid-template-columns: 1fr; }
+      .hero-content { min-height: auto; }
+      .hero-copy { padding-top: 12vh; padding-bottom: 8vh; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      .section { padding: 72px 0; }
+      .brand img { width: 152px; }
+      .motto-values {
+        gap: 18px;
+        flex-direction: column;
+      }
+      .modal-hero,
+      .modal-body {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+      .modal-body { padding-bottom: 30px; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="inicio">
+    <div class="nav-wrap">
+      <div class="container nav">
+        <a class="brand" href="index.html#inicio" aria-label="Catedral Metropolitana de Chihuahua">
+          <img src="src/img/Logo Catedral.webp" alt="Logo de Catedral Metropolitana de Chihuahua" />
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html#inicio">Inicio</a>
+          <a href="index.html#vida-sacramental">Vida Sacramental</a>
+          <a href="index.html#conoce">Conoce tu Catedral</a>
+          <a href="arzobispo.html">Arzobispo</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-copy">
+        <h1 class="hero-title">Arzobispo de<br />Chihuahua</h1>
+        <p class="hero-subtitle">Mons. Constancio Miranda Weckmann</p>
+        <button class="btn" data-modal="modal-semblanza">Leer semblanza</button>
+      </div>
+      <div></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section bio-intro" id="semblanza-resumen">
+      <div class="container bio-grid">
+        <div class="portrait-frame">
+          <img src="src/img/Sección 2 Imagen Arzobispo (1).webp" alt="Retrato de Mons. Constancio Miranda Weckmann" />
+        </div>
+        <div class="bio-card">
+          <h2>Semblanza</h2>
+          <ul class="bio-points">
+            <li>Nacimiento y origen (Chihuahua, 1952).</li>
+            <li>Ordenación sacerdotal (1977).</li>
+            <li>Formación en Roma (licenciatura en Teología Moral, Academia Alfonsiana).</li>
+            <li>Nombramiento como Arzobispo de Chihuahua (2009) e inicio (19 nov 2009).</li>
+            <li>Lema episcopal: “Cristo vence”.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section timeline">
+      <div class="container timeline-grid">
+        <article class="timeline-card">
+          <h3>Vocación y formación</h3>
+          <ul>
+            <li>Humanidades en el Seminario Menor Misioneros de la Natividad de María, León.</li>
+            <li>Filosofía en el Seminario de Ciudad Juárez.</li>
+            <li>Teología en el Seminario Regional del Norte, Chihuahua.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-card">
+          <h3>Ordenación y primeros servicios</h3>
+          <ul>
+            <li>Ordenado sacerdote el 30 de septiembre de 1977 en Ciudad Madera.</li>
+            <li>Vicario parroquial, párroco y Vicario General hasta 1987.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-card">
+          <h3>Formación en Roma e idiomas</h3>
+          <ul>
+            <li>Roma + licenciatura en Teología Moral (Academia Alfonsiana).</li>
+            <li>Idiomas: italiano, inglés, francés y alemán.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-card">
+          <h3>Responsabilidades diocesanas</h3>
+          <ul>
+            <li>Secretario de Curia, Consejo Presbiteral, Colegio de Consultores y Vicario General.</li>
+            <li>Administrador Diocesano (1994–1995).</li>
+          </ul>
+        </article>
+
+        <article class="timeline-card">
+          <h3>Episcopado</h3>
+          <ul>
+            <li>Obispo de Atlacomulco (nombramiento 1998; consagración 4 de agosto de 1998).</li>
+          </ul>
+        </article>
+
+        <article class="timeline-card">
+          <h3>Arzobispo de Chihuahua</h3>
+          <ul>
+            <li>Nombramiento: 29 de septiembre de 2009; llegada: 19 de noviembre de 2009.</li>
+            <li>Palio: 29 de junio de 2010 (Roma).</li>
+            <li>“Misión Permanente”: 8 de enero de 2012.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section motto">
+      <div class="container">
+        <div class="motto-line"></div>
+        <p class="motto-quote">“Cristo vence”</p>
+        <div class="motto-values">
+          <span>Cercanía pastoral</span>
+          <span>Evangelización, paz y unidad</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-title">Un hogar de fe en el corazón de Chihuahua</p>
+      <div class="footer-links">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#vida-sacramental">Vida Sacramental</a>
+        <a href="index.html#conoce">Conoce tu Catedral</a>
+        <a href="arzobispo.html">Arzobispo</a>
+      </div>
+      <p style="text-align:center; margin:0; opacity:0.84;">Síguenos por redes sociales</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">⌁</a>
+        <a href="#" aria-label="Facebook">f</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="modal-semblanza" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Cerrar">×</button>
+      <div class="modal-hero">
+        <h2>Mons. Constancio Miranda Weckmann</h2>
+        <p>Arzobispo de Chihuahua · Semblanza pastoral y trayectoria al servicio de la Iglesia.</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-image">
+          <img src="src/img/Sección 2 Imagen Arzobispo (1).webp" alt="Mons. Constancio Miranda Weckmann" />
+        </div>
+        <div class="modal-copy">
+          <p>Mons. Constancio Miranda Weckmann nació el 15 de septiembre de 1952 en Las Cruces, municipio de Namiquipa, Chihuahua, territorio que actualmente pertenece a la diócesis de Cuauhtémoc-Madera. Desde joven inició su formación sacerdotal, cursando Humanidades en el Seminario Menor de los Misioneros de la Natividad de María en León, Guanajuato; posteriormente realizó estudios de Filosofía en el Seminario de Ciudad Juárez y concluyó su formación teológica en el Seminario Regional del Norte, en la ciudad de Chihuahua.</p>
+
+          <p>Fue ordenado sacerdote el 30 de septiembre de 1977 en Ciudad Madera, cuando esta región aún era Prelatura, bajo la guía pastoral del obispo Mons. Justo Goizueta Gridilla, OAR. En sus primeros años de ministerio, desempeñó su servicio como vicario parroquial en la comunidad de Santa Ana. Poco después, fue nombrado párroco en Santa Clara, Namiquipa, y posteriormente regresó a Santa Ana como párroco, cargo que ejerció simultáneamente con el de Vicario General hasta 1987.</p>
+
+          <p>Ese mismo año fue enviado a Roma para continuar su formación en el Pontificio Colegio Mexicano, donde obtuvo la licenciatura en Teología Moral en la Pontificia Academia Alfonsiana. Además de su lengua materna, domina varios idiomas, entre ellos italiano, inglés, francés y alemán.</p>
+
+          <p>A su regreso a México en 1989, continuó su labor pastoral como vicario parroquial y más tarde como párroco en Ciudad Madera. Paralelamente, desempeñó responsabilidades importantes dentro de la estructura diocesana, como secretario de la Curia, miembro del Consejo Presbiteral y del Colegio de Consultores. En 1990 fue nombrado Vicario General de la Prelatura de Madera.</p>
+
+          <p>Tras el traslado del obispo Mons. Renato Ascencio León a la diócesis de Ciudad Juárez, el entonces Pbro. Constancio Miranda asumió la responsabilidad como Administrador Diocesano entre noviembre de 1994 y diciembre de 1995, guiando la Iglesia local en un momento clave de transición. Ese mismo año, mediante disposición de San Juan Pablo II, la Prelatura de Madera fue elevada a diócesis con el nombre de Cuauhtémoc-Madera, integrando nuevos territorios y consolidando su estructura eclesial. Mons. Miranda continuó sirviendo como Vicario General en esta nueva etapa.</p>
+
+          <p>El 26 de junio de 1998 fue nombrado Obispo de Atlacomulco por el Papa San Juan Pablo II, recibiendo la consagración episcopal el 4 de agosto del mismo año. Durante su servicio episcopal, también colaboró activamente en la Conferencia del Episcopado Mexicano, especialmente en áreas relacionadas con la atención y previsión social del clero, así como en la promoción de vocaciones y ministerios.</p>
+
+          <p>El 29 de septiembre de 2009, el Papa Benedicto XVI lo nombró Arzobispo de Chihuahua. Su llegada a la arquidiócesis, el 19 de noviembre de ese año, estuvo marcada por una profunda cercanía con el pueblo de Dios y un fuerte sentido de pertenencia a su tierra natal. En su primer mensaje como arzobispo, expresó su deseo de ser un pastor cercano, comprometido con la evangelización, la paz y la unidad, eligiendo como lema episcopal: “Cristo vence”.</p>
+
+          <p>Recibió el palio arzobispal el 29 de junio de 2010 en la Basílica de San Pedro, en Roma, de manos del Papa Benedicto XVI, signo de su comunión con la Iglesia universal.</p>
+
+          <p>Uno de los momentos más significativos de su ministerio pastoral fue la proclamación, el 8 de enero de 2012, de la Arquidiócesis de Chihuahua en estado de “Misión Permanente”. Esta iniciativa buscó impulsar una renovación profunda de la vida eclesial, promoviendo el paso de una pastoral de conservación a una Iglesia en salida, misionera y comprometida, en la que todos los bautizados —pastores, consagrados y laicos— participen activamente en el anuncio del Evangelio.</p>
+
+          <p>A lo largo de su vida, Mons. Constancio Miranda Weckmann se ha distinguido por su entrega pastoral, su formación sólida y su profundo amor a la Iglesia, sirviendo con fidelidad al pueblo de Dios en diversas responsabilidades, siempre con el deseo de conducir a todos al encuentro con Cristo.</p>
+
+          <blockquote>“Cristo vence” — lema episcopal que resume una vida entregada a la cercanía pastoral, la evangelización, la paz y la unidad.</blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!expanded));
+        navLinks.classList.toggle('active');
+      });
+    }
+
+    document.querySelectorAll('[data-modal]').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const modal = document.getElementById(trigger.dataset.modal);
+        if (modal) {
+          modal.classList.add('active');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    document.querySelectorAll('.modal').forEach((modal) => {
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal || event.target.classList.contains('modal-close')) {
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        document.querySelectorAll('.modal.active').forEach((modal) => {
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
