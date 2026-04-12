@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primera Comunión | Catedral Metropolitana de Chihuahua</title>
+  <meta name="description" content="Información y preparación para recibir la Primera Comunión en Catedral." />
+  <style>
+    @font-face {
+      font-family: 'CharterCustom';
+      src: url('src/fonts/Charter Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'CharterCustom';
+      src: url('src/fonts/Charter Regular.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'CharterCustom';
+      src: url('src/fonts/Charter Regular.ttf') format('truetype');
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'SnellRoundhandCustom';
+      src: url('src/fonts/Snell Roundhand Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #f5f1e7;
+      --bg-soft: #f2ede2;
+      --cream: #faf7ef;
+      --sand: #d8c189;
+      --gold: #8c7441;
+      --gold-dark: #6f5a34;
+      --brown: #5a4633;
+      --brown-deep: #33241a;
+      --text: #5d4b3c;
+      --line: rgba(111, 90, 52, 0.18);
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(34, 23, 15, 0.12);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'CharterCustom', Georgia, serif;
+      line-height: 1.55;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 24px;
+      border: 1px solid rgba(255,255,255,0.54);
+      background: transparent;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.76);
+    }
+
+    .btn--gold {
+      background: rgba(157, 121, 83, 0.95);
+      border-color: rgba(157, 121, 83, 0.95);
+      color: var(--white);
+      box-shadow: 0 10px 20px rgba(56, 40, 24, 0.12);
+    }
+
+    .btn--gold:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+    }
+
+    .section { padding: 88px 0; }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: clamp(2.2rem, 3.6vw, 3.5rem);
+      line-height: 1.04;
+      color: var(--brown);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      margin: 0;
+      font-size: 1.08rem;
+      color: rgba(93,75,60,0.84);
+      text-align: center;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(17,14,11,0.58), rgba(17,14,11,0.2));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 16px 0;
+    }
+
+    .brand img {
+      width: 176px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0.96;
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-dropdown-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: none;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      font: inherit;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: inherit;
+      cursor: pointer;
+      opacity: 0.96;
+    }
+
+    .nav-dropdown-toggle .caret {
+      font-size: 0.65em;
+      opacity: 0.85;
+      line-height: 1;
+    }
+
+    .nav-dropdown-panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 220px;
+      padding: 10px 0;
+      background: rgba(17, 14, 11, 0.97);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+      border-radius: 4px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+      z-index: 40;
+    }
+
+    @media (min-width: 821px) {
+      .nav-dropdown:hover .nav-dropdown-panel,
+      .nav-dropdown:focus-within .nav-dropdown-panel {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-dropdown-panel a {
+      display: block;
+      padding: 10px 18px;
+      white-space: nowrap;
+      text-decoration: none;
+      opacity: 1;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .nav-dropdown-panel a:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    @media (max-width: 820px) {
+      .nav-dropdown {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+        text-align: left;
+        padding: 4px 0;
+      }
+
+      .nav-dropdown-panel {
+        position: static;
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        transform: none;
+        padding: 0;
+        margin: 0;
+        min-width: 0;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        transition: max-height 0.28s ease, opacity 0.2s ease;
+      }
+
+      .nav-dropdown.is-open .nav-dropdown-panel {
+        opacity: 1;
+        visibility: visible;
+        max-height: 240px;
+        padding: 4px 0 8px 14px;
+      }
+
+      .nav-dropdown-panel a {
+        padding: 10px 0;
+        white-space: normal;
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: transparent;
+      color: var(--white);
+      min-height: 42px;
+      padding: 0 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      color: var(--white);
+      background:
+        linear-gradient(180deg, rgba(26,18,12,0.18) 0%, rgba(26,18,12,0.26) 26%, rgba(26,18,12,0.44) 100%),
+        linear-gradient(90deg, rgba(123,82,39,0.72) 0%, rgba(123,82,39,0.56) 28%, rgba(20,15,12,0.12) 62%),
+        url('src/img/Seccion 1 Background (2).webp') center center / cover no-repeat;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: minmax(280px, 540px) 1fr;
+      gap: 24px;
+      align-items: center;
+      min-height: calc(100svh - 86px);
+      padding: 64px 0 72px;
+    }
+
+    .hero-copy {
+      max-width: 500px;
+      padding: 6vh 0 0;
+    }
+
+    .hero-title {
+      margin: 0 0 12px;
+      font-size: clamp(3rem, 6.4vw, 5.4rem);
+      line-height: 0.96;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 34px;
+      font-size: clamp(1.08rem, 1.8vw, 1.34rem);
+      color: rgba(255,255,255,0.92);
+      max-width: 360px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .info-band {
+      background: linear-gradient(90deg, #7f5b2d 0%, #8f7440 50%, #7f5b2d 100%);
+      color: #fff8ed;
+      text-align: center;
+      padding: 22px 0 18px;
+    }
+
+    .band-grid {
+      display: grid;
+      grid-template-columns: 88px 1fr 88px;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .band-grid img {
+      width: 64px;
+      margin: 0 auto;
+      opacity: 0.92;
+    }
+
+    .info-band strong {
+      display: block;
+      font-size: 1.28rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .how-start {
+      background: radial-gradient(circle at 20% 30%, rgba(221,205,150,0.22), transparent 30%), linear-gradient(180deg, #f7f3e5 0%, #f3efdf 100%);
+      text-align: center;
+    }
+
+    .steps-grid {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 34px;
+    }
+
+    .step-card {
+      padding: 10px 18px;
+    }
+
+    .step-card img {
+      width: 62px;
+      margin: 0 auto 16px;
+    }
+
+    .step-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.42rem;
+      line-height: 1.18;
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .step-card p {
+      margin: 0;
+      font-size: 1rem;
+      color: rgba(93,75,60,0.82);
+      max-width: 270px;
+      margin-inline: auto;
+    }
+
+    .prep-section {
+      background: linear-gradient(180deg, #f8f6f3 0%, #f1efeb 100%);
+    }
+
+    .prep-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .prep-image {
+      background: var(--white);
+      border: 6px solid #b28d56;
+      box-shadow: var(--shadow);
+      border-bottom-left-radius: 80px;
+      overflow: hidden;
+      max-width: 470px;
+    }
+
+    .prep-copy h2 {
+      margin: 0 0 20px;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 0.98;
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .prep-copy p {
+      margin: 0 0 18px;
+      font-size: 1.12rem;
+      color: rgba(93,75,60,0.9);
+    }
+
+    .requirements {
+      background: #ecdbbc;
+      text-align: center;
+    }
+
+    .requirements .content-narrow {
+      width: min(100%, 760px);
+      margin: 0 auto;
+    }
+
+    .requirements .section-subtitle {
+      margin-bottom: 30px;
+    }
+
+    .check-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 16px;
+      text-align: left;
+    }
+
+    .check-list li {
+      position: relative;
+      padding-left: 36px;
+      font-size: 1.08rem;
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .check-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.12em;
+      width: 22px;
+      height: 22px;
+      background: url('src/img/Seccion 5 icono checklist.webp') center center / contain no-repeat;
+    }
+
+    .requirements .actions {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .records {
+      background: linear-gradient(180deg, #f6f4f1 0%, #efefec 100%);
+    }
+
+    .records-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .records-image {
+      max-width: 430px;
+      box-shadow: var(--shadow);
+    }
+
+    .records-copy h2 {
+      margin: 0 0 16px;
+      font-size: clamp(2.2rem, 3.6vw, 3.6rem);
+      line-height: 1.02;
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .records-copy .line {
+      width: min(100%, 420px);
+      height: 1px;
+      background: #cda85b;
+      margin-bottom: 22px;
+    }
+
+    .records-copy p {
+      margin: 0 0 24px;
+      font-size: 1.14rem;
+      color: rgba(93,75,60,0.9);
+      font-weight: 700;
+      max-width: 440px;
+    }
+
+    footer {
+      color: var(--white);
+      background: radial-gradient(circle at 20% 30%, rgba(140,97,42,0.22), transparent 32%), linear-gradient(180deg, #2b1d14 0%, #1b120d 100%);
+      padding: 58px 0 42px;
+      min-height: 320px;
+    }
+
+    .footer-title {
+      text-align: center;
+      margin: 0 0 24px;
+      font-size: 1.12rem;
+      opacity: 0.92;
+      font-style: italic;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .footer-links a {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      opacity: 0.92;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .socials a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.22);
+      display: grid;
+      place-items: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-content,
+      .prep-grid,
+      .records-grid {
+        grid-template-columns: 1fr;
+      }
+      .prep-image,
+      .records-image { max-width: 440px; }
+    }
+
+    @media (max-width: 820px) {
+      .menu-toggle { display: inline-flex; align-items: center; }
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 16px 20px 20px;
+        background: rgba(17,14,11,0.96);
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links.active { display: flex; }
+      .hero-content { min-height: auto; }
+      .hero-copy { padding-top: 12vh; padding-bottom: 8vh; }
+      .steps-grid,
+      .band-grid {
+        grid-template-columns: 1fr;
+      }
+      .band-grid img { width: 58px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      .section { padding: 72px 0; }
+      .brand img { width: 152px; }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn { width: 100%; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .prep-image { border-bottom-left-radius: 52px; }
+      .check-list li,
+      .records-copy p,
+      .prep-copy p { font-size: 1rem; }
+      .footer-links { gap: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="inicio">
+    <div class="nav-wrap">
+      <div class="container nav">
+        <a class="brand" href="index.html#inicio" aria-label="Catedral Metropolitana de Chihuahua">
+          <img src="src/img/Logo Catedral.webp" alt="Logo de Catedral Metropolitana de Chihuahua" />
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
+        <nav class="nav-links" id="navLinks">
+          <a href="/">Inicio</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-dropdown-toggle" id="navSacramentalToggle" aria-expanded="false" aria-haspopup="true" aria-controls="navSacramentalMenu">
+              Vida Sacramental <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-dropdown-panel" id="navSacramentalMenu" role="menu">
+              <a href="bautismo.html" role="menuitem">Bautismo</a>
+              <a href="primera_comunion.html" role="menuitem">Primera comunión</a>
+            </div>
+          </div>
+          <a href="conoce_tu_catedral.html">Conoce tu Catedral</a>
+          <a href="arzobispo.html">Arzobispo</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-copy">
+        <h1 class="hero-title">Primera<br />Comunión</h1>
+        <p class="hero-subtitle">Información y preparación para recibir la Primera Comunión en Catedral.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#como-iniciar">Cómo iniciar</a>
+          <a class="btn" href="tel:+526149802392">Contactar oficina</a>
+        </div>
+      </div>
+      <div></div>
+    </div>
+  </header>
+
+  <section class="info-band">
+    <div class="container band-grid">
+      <img src="src/img/Seccion 2 icono.webp" alt="Ícono decorativo eucarístico" />
+      <strong>Para trámites: documentación completa en original y copia.<br />No se aceptan fotos ni escáner.</strong>
+      <img src="src/img/Seccion 2 icono.webp" alt="Ícono decorativo eucarístico" />
+    </div>
+  </section>
+
+  <main>
+    <section class="section how-start" id="como-iniciar">
+      <div class="container">
+        <h2 class="section-title">Cómo iniciar</h2>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <img src="src/img/Seccion 3 icono consulta en oficina.webp" alt="Ícono consulta en oficina" />
+            <h3>Consulta en<br />oficina</h3>
+            <p>El proceso y requisitos según el caso (niño/adolescente).</p>
+          </article>
+
+          <article class="step-card">
+            <img src="src/img/Seccion 3 icono inscripcion a catequesis.webp" alt="Ícono inscripción a catequesis" />
+            <h3>Inscripción a<br />catequesis/preparación</h3>
+            <p>(Según calendario parroquial).</p>
+          </article>
+
+          <article class="step-card">
+            <img src="src/img/Seccion 3 icono entrega de documentacion.webp" alt="Ícono entrega de documentación" />
+            <h3>Entrega de<br />documentación</h3>
+            <p>(Original y copia) y seguimiento hasta la celebración.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section prep-section">
+      <div class="container prep-grid">
+        <div class="prep-image">
+          <img src="src/img/Seccion 4 imagen preparacion para la primera comunion.webp" alt="Preparación para la Primera Comunión" />
+        </div>
+
+        <div class="prep-copy">
+          <h2>Preparación para la<br />Primera Comunión</h2>
+          <p>La Primera Comunión es el primer encuentro sacramental con la Eucaristía, que es “fuente y culmen de toda la vida cristiana”.</p>
+          <p>Por eso, antes de recibirla, se realiza una preparación/catequesis y se invita a vivirla con respeto y sentido espiritual: con disposición interior, examen de conciencia y, cuando sea necesario, acercándose al sacramento de la Reconciliación.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section requirements">
+      <div class="container">
+        <div class="content-narrow" style="width:min(100%, 760px); margin:0 auto;">
+          <h2 class="section-title">Requisitos</h2>
+          <p class="section-subtitle">Los requisitos pueden variar según la edad y el caso.</p>
+
+          <ul class="check-list" style="margin-top: 34px;">
+            <li>Edad mínima: 9 años.</li>
+            <li>Curso/catequesis: el niño debe recibir el curso correspondiente.</li>
+            <li>Acta de Bautismo (original y copia).</li>
+            <li>Acta de Confirmación (si ya se realizó el sacramento) (original y copia).</li>
+            <li>Acta de nacimiento (original y copia).</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn btn--gold" href="tel:+526149802392">Pedir requisitos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section records">
+      <div class="container records-grid">
+        <div class="records-image">
+          <img src="src/img/Seccion 6 constancias.webp" alt="Ejemplo de constancia de Primera Comunión" />
+        </div>
+
+        <div class="records-copy">
+          <h2>Constancias</h2>
+          <div class="line"></div>
+          <p>Si necesitas constancia de Primera Comunión, se solicita y se recoge en oficina.</p>
+          <a class="btn btn--gold" href="https://wa.me/526149802392" target="_blank" rel="noopener noreferrer">Solicitar vía WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-title">Un hogar de fe en el corazón de Chihuahua</p>
+      <div class="footer-links">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#vida-sacramental">Vida Sacramental</a>
+        <a href="conoce-tu-catedral.html#inicio">Conoce tu Catedral</a>
+        <a href="arzobispo.html#inicio">Arzobispo</a>
+      </div>
+      <p style="text-align:center; margin:0; opacity:0.84;">Síguenos por redes sociales</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">⌁</a>
+        <a href="#" aria-label="Facebook">f</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!expanded));
+        navLinks.classList.toggle('active');
+        document.querySelectorAll('.nav-dropdown.is-open').forEach((el) => {
+          el.classList.remove('is-open');
+          const t = el.querySelector('.nav-dropdown-toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    const sacramentalDropdown = document.querySelector('.nav-dropdown');
+    const sacramentalToggle = document.getElementById('navSacramentalToggle');
+    if (sacramentalToggle && sacramentalDropdown) {
+      sacramentalToggle.addEventListener('click', (e) => {
+        if (window.matchMedia('(max-width: 820px)').matches) {
+          e.stopPropagation();
+          const open = sacramentalDropdown.classList.toggle('is-open');
+          sacramentalToggle.setAttribute('aria-expanded', String(open));
+        }
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      const dd = document.querySelector('.nav-dropdown');
+      if (dd && dd.classList.contains('is-open') && !dd.contains(e.target)) {
+        dd.classList.remove('is-open');
+        const t = dd.querySelector('.nav-dropdown-toggle');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        document.querySelectorAll('.nav-dropdown.is-open').forEach((el) => {
+          el.classList.remove('is-open');
+          const t = el.querySelector('.nav-dropdown-toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
