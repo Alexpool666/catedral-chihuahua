@@ -14,20 +14,6 @@
       font-display: swap;
     }
     @font-face {
-      font-family: 'CharterCustom';
-      src: url('src/fonts/Charter Regular.ttf') format('truetype');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'CharterCustom';
-      src: url('src/fonts/Charter Regular.ttf') format('truetype');
-      font-weight: 700;
-      font-style: italic;
-      font-display: swap;
-    }
-    @font-face {
       font-family: 'SnellRoundhandCustom';
       src: url('src/fonts/Snell Roundhand Regular.ttf') format('truetype');
       font-weight: 400;
@@ -58,6 +44,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'CharterCustom', Georgia, serif;
+      font-weight: 400;
       line-height: 1.55;
     }
 
@@ -72,6 +59,9 @@
 
     .btn {
       display: inline-flex;
+      font-family: 'CharterCustom', Georgia, serif;
+      font-weight: 700;
+      font-synthesis: weight;
       align-items: center;
       justify-content: center;
       min-height: 48px;
@@ -112,7 +102,8 @@
     .nav-wrap {
       position: sticky;
       top: 0;
-      z-index: 30;
+      z-index: 200;
+      overflow: visible;
       backdrop-filter: blur(10px);
       background: linear-gradient(180deg, rgba(17,14,11,0.58), rgba(17,14,11,0.2));
       border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -178,10 +169,10 @@
 
     .nav-dropdown-panel {
       position: absolute;
-      top: calc(100% + 10px);
+      top: 100%;
       left: 0;
       min-width: 220px;
-      padding: 10px 0;
+      padding: 12px 0 10px;
       background: rgba(17, 14, 11, 0.97);
       color: var(--white);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -191,7 +182,7 @@
       visibility: hidden;
       transform: translateY(-6px);
       transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-      z-index: 40;
+      z-index: 210;
     }
 
     @media (min-width: 821px) {
@@ -276,13 +267,38 @@
 
     .hero {
       position: relative;
+      isolation: isolate;
       min-height: 100svh;
       color: var(--white);
+      background-color: #1a1410;
+      background-image: url('src/img/Seccion 1 Background (1).png');
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: visible;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
       background:
         linear-gradient(180deg, rgba(26,18,12,0.28) 0%, rgba(26,18,12,0.28) 30%, rgba(26,18,12,0.5) 100%),
-        linear-gradient(90deg, rgba(20,15,12,0.62) 0%, rgba(20,15,12,0.28) 36%, rgba(20,15,12,0.08) 100%),
-        url('src/img/Seccion 1 Background (1).webp') center center / cover no-repeat;
-      overflow: hidden;
+        linear-gradient(90deg, rgba(20,15,12,0.62) 0%, rgba(20,15,12,0.28) 36%, rgba(20,15,12,0.08) 100%);
+    }
+
+    .hero > * {
+      position: relative;
+    }
+
+    .hero .nav-wrap {
+      z-index: 200;
+    }
+
+    .hero .hero-content {
+      z-index: 1;
     }
 
     .hero-content {
@@ -301,7 +317,7 @@
 
     .hero-title {
       margin: 0 0 12px;
-      font-size: clamp(3rem, 6.4vw, 5.4rem);
+      font-size: clamp(2.6rem, 5.35vw, 4.5rem);
       line-height: 0.96;
       font-weight: 700;
       letter-spacing: -0.04em;
@@ -361,7 +377,9 @@
     }
 
     .step-card img {
-      width: 62px;
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
       margin: 0 auto 16px;
     }
 
@@ -487,7 +505,7 @@
       top: 0.15em;
       width: 22px;
       height: 22px;
-      background: url('src/img/Icono checklist requisitos.webp') center center / contain no-repeat;
+      background: url('src/img/Icono checklist requisitos.png') center center / contain no-repeat;
     }
 
     .not-allowed {
@@ -540,7 +558,7 @@
       top: 0.12em;
       width: 22px;
       height: 22px;
-      background: url('src/img/Icono checklist Quiénes NO pueden ser padrinos.webp') center center / contain no-repeat;
+      background: url('src/img/Icono checklist Quiénes NO pueden ser padrinos.png') center center / contain no-repeat;
     }
 
     .closing-band {
@@ -640,6 +658,7 @@
         display: none;
         flex-direction: column;
         align-items: flex-start;
+        overflow: visible;
       }
       .nav-links.active { display: flex; }
       .hero-content { min-height: auto; }
@@ -674,7 +693,7 @@
     <div class="nav-wrap">
       <div class="container nav">
         <a class="brand" href="index.html#inicio" aria-label="Catedral Metropolitana de Chihuahua">
-          <img src="src/img/Logo Catedral.webp" alt="Logo de Catedral Metropolitana de Chihuahua" />
+          <img src="src/img/Logo Catedral.png" alt="Logo de Catedral Metropolitana de Chihuahua" />
         </a>
         <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
         <nav class="nav-links" id="navLinks">
@@ -723,19 +742,19 @@
 
         <div class="steps-grid">
           <article class="step-card">
-            <img src="src/img/Seccion 3 Icono Reune tu documentacion.webp" alt="Ícono reúne tu documentación" />
+            <img src="src/img/Seccion 3 Icono Reune tu documentacion.png" alt="Ícono reúne tu documentación" />
             <h3>Reúne tu<br />documentación</h3>
             <p>(Papás + Padrinos)</p>
           </article>
 
           <article class="step-card">
-            <img src="src/img/Seccion 3 Icono TomaComprueba platicas prebautismales.webp" alt="Ícono pláticas prebautismales" />
+            <img src="src/img/Seccion 3 Icono TomaComprueba platicas prebautismales.png" alt="Ícono pláticas prebautismales" />
             <h3>Toma/Comprueba<br />pláticas prebautismales</h3>
             <p>(Cuando aplique)</p>
           </article>
 
           <article class="step-card">
-            <img src="src/img/Seccion 3 Icono Inscribe en oficina el lunes.webp" alt="Ícono inscripción en oficina" />
+            <img src="src/img/Seccion 3 Icono Inscribe en oficina el lunes.png" alt="Ícono inscripción en oficina" />
             <h3>Inscribe en oficina<br />el lunes</h3>
             <p>(Lunes o martes de la semana del bautizo)</p>
           </article>

@@ -14,20 +14,6 @@
       font-display: swap;
     }
     @font-face {
-      font-family: 'CharterCustom';
-      src: url('src/fonts/Charter Regular.ttf') format('truetype');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'CharterCustom';
-      src: url('src/fonts/Charter Regular.ttf') format('truetype');
-      font-weight: 700;
-      font-style: italic;
-      font-display: swap;
-    }
-    @font-face {
       font-family: 'SnellRoundhandCustom';
       src: url('src/fonts/Snell Roundhand Regular.ttf') format('truetype');
       font-weight: 400;
@@ -58,6 +44,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'CharterCustom', Georgia, serif;
+      font-weight: 400;
       line-height: 1.55;
     }
 
@@ -72,6 +59,9 @@
 
     .btn {
       display: inline-flex;
+      font-family: 'CharterCustom', Georgia, serif;
+      font-weight: 700;
+      font-synthesis: weight;
       align-items: center;
       justify-content: center;
       min-height: 48px;
@@ -124,7 +114,8 @@
     .nav-wrap {
       position: sticky;
       top: 0;
-      z-index: 30;
+      z-index: 200;
+      overflow: visible;
       backdrop-filter: blur(10px);
       background: linear-gradient(180deg, rgba(17,14,11,0.58), rgba(17,14,11,0.2));
       border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -190,10 +181,10 @@
 
     .nav-dropdown-panel {
       position: absolute;
-      top: calc(100% + 10px);
+      top: 100%;
       left: 0;
       min-width: 220px;
-      padding: 10px 0;
+      padding: 12px 0 10px;
       background: rgba(17, 14, 11, 0.97);
       color: var(--white);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -203,7 +194,7 @@
       visibility: hidden;
       transform: translateY(-6px);
       transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-      z-index: 40;
+      z-index: 210;
     }
 
     @media (min-width: 821px) {
@@ -288,13 +279,38 @@
 
     .hero {
       position: relative;
+      isolation: isolate;
       min-height: 100svh;
       color: var(--white);
+      background-color: #221c18;
+      background-image: url('src/img/Sección 1 Background.png');
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: visible;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(18,14,11,0.36) 0%, rgba(18,14,11,0.16) 30%, rgba(18,14,11,0.58) 100%),
-        linear-gradient(90deg, rgba(18,14,11,0.72) 0%, rgba(18,14,11,0.32) 40%, rgba(18,14,11,0.08) 100%),
-        url('src/img/Sección 1 Background.webp') center center / cover no-repeat;
-      overflow: hidden;
+        linear-gradient(180deg, rgba(24, 20, 16, 0.12) 0%, transparent 42%, rgba(24, 20, 16, 0.2) 100%),
+        linear-gradient(90deg, rgba(24, 20, 16, 0.22) 0%, rgba(24, 20, 16, 0.06) 38%, transparent 58%);
+    }
+
+    .hero > * {
+      position: relative;
+    }
+
+    .hero .nav-wrap {
+      z-index: 200;
+    }
+
+    .hero .hero-content {
+      z-index: 1;
     }
 
     .hero-content {
@@ -313,7 +329,7 @@
 
     .hero-title {
       margin: 0;
-      font-size: clamp(3.05rem, 6.5vw, 5.7rem);
+      font-size: clamp(2.65rem, 5.45vw, 4.85rem);
       line-height: 0.94;
       font-weight: 700;
       letter-spacing: -0.04em;
@@ -341,23 +357,58 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 58px;
+      margin-bottom: 28px;
     }
 
     .hero-shortcuts {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      margin: 0;
+      height: 12rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      background-color: rgba(140, 116, 65, 0.96);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
 
-    .shortcut {
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,0.34);
-      text-align: center;
-      font-size: 0.8rem;
+    .hero-shortcuts-inner {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 14px 16px;
+    }
+
+    .hero-shortcuts .shortcut {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 10px 22px;
+      font-family: 'CharterCustom', Georgia, serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-synthesis: weight;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.92);
+      text-align: center;
+      color: rgba(251, 248, 241, 0.96);
+      border: 1px solid rgba(212, 197, 162, 0.42);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.07);
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .hero-shortcuts .shortcut:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(212, 197, 162, 0.7);
+      color: #fffdf8;
     }
 
     .intro {
@@ -476,7 +527,7 @@
       color: var(--white);
       background:
         linear-gradient(180deg, rgba(20,14,10,0.24), rgba(20,14,10,0.78)),
-        url('src/img/Sección 5 Background.webp') center center / cover no-repeat;
+        url('src/img/Sección 5 Background.png') center center / cover no-repeat;
     }
 
     .visit .section-title,
@@ -500,14 +551,15 @@
     }
 
     .visit-card .icon {
-      width: 52px;
-      height: 52px;
+      width: 64px;
+      height: 64px;
       border: 1px solid rgba(255,255,255,0.24);
       border-radius: 50%;
       display: grid;
       place-items: center;
       margin-bottom: 16px;
-      font-size: 1.2rem;
+      font-size: 1.35rem;
+      line-height: 1;
     }
 
     .visit-card h3 {
@@ -566,7 +618,10 @@
 
     .faq-side {
       min-height: 100%;
-      background: linear-gradient(180deg, rgba(248,243,230,0.74), rgba(248,243,230,0.74)), url('src/img/Sección 6 Imagen Preguntas Frecuentes.webp') center center / cover no-repeat;
+      background-image: url('src/img/Sección 6 Imagen Preguntas Frecuentes.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       padding: 26px;
       display: flex;
       align-items: end;
@@ -631,10 +686,10 @@
     }
 
     .see-card img {
-      width: 88px;
-      height: 88px;
-      margin: 0 auto 18px;
-      object-fit: cover;
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 16px;
+      object-fit: contain;
     }
 
     .see-card h3 {
@@ -786,11 +841,21 @@
         display: none;
         flex-direction: column;
         align-items: flex-start;
+        overflow: visible;
       }
       .nav-links.active { display: flex; }
       .hero-content { min-height: auto; }
       .hero-copy { padding-top: 12vh; padding-bottom: 8vh; }
-      .hero-shortcuts { grid-template-columns: 1fr; }
+      .hero-shortcuts-inner {
+        flex-direction: column;
+        align-items: stretch;
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .hero-shortcuts .shortcut {
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     @media (max-width: 640px) {
@@ -818,7 +883,7 @@
     <div class="nav-wrap">
       <div class="container nav">
         <a class="brand" href="index.html#inicio" aria-label="Catedral Metropolitana de Chihuahua">
-          <img src="src/img/Logo Catedral.webp" alt="Logo de Catedral Metropolitana de Chihuahua" />
+          <img src="src/img/Logo Catedral.png" alt="Logo de Catedral Metropolitana de Chihuahua" />
         </a>
         <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
         <nav class="nav-links" id="navLinks">
@@ -846,15 +911,18 @@
         <p class="hero-subtitle">Horarios de misa, celebraciones y lo esencial para visitarnos.</p>
         <div class="hero-actions">
           <a class="btn" href="https://kuula.co/share/collection/7vqxR?logo=1&info=1&fs=1&vr=1&zoom=1&autorotate=0.53&autop=60&thumbs=3&inst=0" target="_blank" rel="noopener noreferrer">Planear tour</a>
-          <a class="btn" href="https://catedraldechihuahua.com/matrimonio.html" target="_blank" rel="noopener noreferrer">Me quiero casar</a>
-        </div>
-        <div class="hero-shortcuts">
-          <a class="shortcut" href="#vida-sacramental">Vida sacramental</a>
-          <a class="shortcut" href="#visita">Planifica tu visita</a>
-          <a class="shortcut" href="#conoce">Conoce tu Catedral</a>
+          <a class="btn" href="matrimonio.html">Me quiero casar</a>
         </div>
       </div>
       <div></div>
+    </div>
+
+    <div class="hero-shortcuts" role="navigation" aria-label="Atajos del inicio">
+      <div class="hero-shortcuts-inner">
+        <a class="shortcut" href="matrimonio.html">Me quiero casar</a>
+        <a class="shortcut" href="#visita">Planifica tu visita</a>
+        <a class="shortcut" href="#conoce">Conoce tu Catedral</a>
+      </div>
     </div>
   </header>
 
@@ -868,7 +936,7 @@
           <a class="btn btn--gold" href="https://catedraldechihuahua.com/conoce_tu_catedral.html" target="_blank" rel="noopener noreferrer">Conoce tu Catedral</a>
         </div>
         <div class="intro-image">
-          <img src="src/img/Sección 2 Imagen.webp" alt="Interior de la Catedral Metropolitana de Chihuahua" />
+          <img src="src/img/Sección 2 Imagen.png" alt="Interior de la Catedral Metropolitana de Chihuahua" />
         </div>
       </div>
     </section>
@@ -955,7 +1023,7 @@
 
     <section class="section rules-section">
       <div class="container rules-grid">
-        <div class="rules-image"><img src="src/img/Sección 6 Imagen.webp" alt="Detalle arquitectónico de la Catedral" /></div>
+        <div class="rules-image"><img src="src/img/Sección 6 Imagen.png" alt="Detalle arquitectónico de la Catedral" /></div>
         <div class="rules-copy">
           <h2>Reglas de visita</h2>
           <ul class="rules-list">
@@ -986,12 +1054,12 @@
         <p class="section-subtitle">Un recorrido breve por los puntos más emblemáticos.</p>
 
         <div class="what-grid">
-          <article class="see-card"><img src="src/img/Icono Catedral Que ver en Catedral.webp" alt="Fachada y torres" /><h3>Fachada y Torres</h3><p>Arquitectura y cantera.</p></article>
-          <article class="see-card"><img src="src/img/Icono Catedral Que ver en Catedral.webp" alt="Nave principal" /><h3>Nave principal</h3><p>Perspectiva y silencio.</p></article>
-          <article class="see-card"><img src="src/img/Icono Catedral Que ver en Catedral.webp" alt="Altar mayor" /><h3>Altar mayor</h3><p>Punto focal.</p></article>
-          <article class="see-card"><img src="src/img/Icono Catedral Que ver en Catedral.webp" alt="Capillas laterales" /><h3>Capillas laterales</h3><p>Devoción y arte.</p></article>
-          <article class="see-card"><img src="src/img/Icono Catedral Que ver en Catedral.webp" alt="Vitrales y luz" /><h3>Vitrales y Luz</h3><p>Detalles y color.</p></article>
-          <article class="see-card"><img src="src/img/Icono Catedral Que ver en Catedral.webp" alt="Órgano y coro" /><h3>Órgano y Coro</h3><p>Ritmo y música.</p></article>
+          <article class="see-card"><img src="src/img/Icono Catedral Que ver en Catedral.png" alt="Fachada y torres" /><h3>Fachada y Torres</h3><p>Arquitectura y cantera.</p></article>
+          <article class="see-card"><img src="src/img/Icono Catedral Que ver en Catedral.png" alt="Nave principal" /><h3>Nave principal</h3><p>Perspectiva y silencio.</p></article>
+          <article class="see-card"><img src="src/img/Icono Catedral Que ver en Catedral.png" alt="Altar mayor" /><h3>Altar mayor</h3><p>Punto focal.</p></article>
+          <article class="see-card"><img src="src/img/Icono Catedral Que ver en Catedral.png" alt="Capillas laterales" /><h3>Capillas laterales</h3><p>Devoción y arte.</p></article>
+          <article class="see-card"><img src="src/img/Icono Catedral Que ver en Catedral.png" alt="Vitrales y luz" /><h3>Vitrales y Luz</h3><p>Detalles y color.</p></article>
+          <article class="see-card"><img src="src/img/Icono Catedral Que ver en Catedral.png" alt="Órgano y coro" /><h3>Órgano y Coro</h3><p>Ritmo y música.</p></article>
         </div>
 
         <div style="margin-top:34px; text-align:center;">

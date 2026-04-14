@@ -14,20 +14,6 @@
       font-display: swap;
     }
     @font-face {
-      font-family: 'CharterCustom';
-      src: url('src/fonts/Charter Regular.ttf') format('truetype');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'CharterCustom';
-      src: url('src/fonts/Charter Regular.ttf') format('truetype');
-      font-weight: 700;
-      font-style: italic;
-      font-display: swap;
-    }
-    @font-face {
       font-family: 'SnellRoundhandCustom';
       src: url('src/fonts/Snell Roundhand Regular.ttf') format('truetype');
       font-weight: 400;
@@ -58,6 +44,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'CharterCustom', Georgia, serif;
+      font-weight: 400;
       line-height: 1.55;
     }
 
@@ -72,6 +59,9 @@
 
     .btn {
       display: inline-flex;
+      font-family: 'CharterCustom', Georgia, serif;
+      font-weight: 700;
+      font-synthesis: weight;
       align-items: center;
       justify-content: center;
       min-height: 48px;
@@ -124,7 +114,8 @@
     .nav-wrap {
       position: sticky;
       top: 0;
-      z-index: 30;
+      z-index: 200;
+      overflow: visible;
       backdrop-filter: blur(10px);
       background: linear-gradient(180deg, rgba(17,14,11,0.58), rgba(17,14,11,0.2));
       border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -190,10 +181,10 @@
 
     .nav-dropdown-panel {
       position: absolute;
-      top: calc(100% + 10px);
+      top: 100%;
       left: 0;
       min-width: 220px;
-      padding: 10px 0;
+      padding: 12px 0 10px;
       background: rgba(17, 14, 11, 0.97);
       color: var(--white);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -203,7 +194,7 @@
       visibility: hidden;
       transform: translateY(-6px);
       transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-      z-index: 40;
+      z-index: 210;
     }
 
     @media (min-width: 821px) {
@@ -288,13 +279,38 @@
 
     .hero {
       position: relative;
+      isolation: isolate;
       min-height: 100svh;
       color: var(--white);
+      background-color: #1c1411;
+      background-image: url('src/img/Seccion 1 Background (4).png');
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: visible;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
       background:
         linear-gradient(180deg, rgba(26,18,12,0.26) 0%, rgba(26,18,12,0.3) 24%, rgba(26,18,12,0.5) 100%),
-        linear-gradient(90deg, rgba(108,45,44,0.38) 0%, rgba(22,17,12,0.36) 38%, rgba(22,17,12,0.14) 68%),
-        url('src/img/Seccion 1 Background (4).webp') center center / cover no-repeat;
-      overflow: hidden;
+        linear-gradient(90deg, rgba(108,45,44,0.38) 0%, rgba(22,17,12,0.36) 38%, rgba(22,17,12,0.14) 68%);
+    }
+
+    .hero > * {
+      position: relative;
+    }
+
+    .hero .nav-wrap {
+      z-index: 200;
+    }
+
+    .hero .hero-content {
+      z-index: 1;
     }
 
     .hero-content {
@@ -313,7 +329,7 @@
 
     .hero-title {
       margin: 0 0 12px;
-      font-size: clamp(3rem, 6.4vw, 5.4rem);
+      font-size: clamp(2.6rem, 5.35vw, 4.5rem);
       line-height: 0.96;
       font-weight: 700;
       letter-spacing: -0.04em;
@@ -347,7 +363,9 @@
     }
 
     .band-grid img {
-      width: 74px;
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
       margin: 0 auto;
       opacity: 0.92;
     }
@@ -376,7 +394,9 @@
     }
 
     .step-card img {
-      width: 62px;
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
       margin: 0 auto 16px;
     }
 
@@ -483,7 +503,7 @@
       top: 0.12em;
       width: 22px;
       height: 22px;
-      background: url('src/img/Icono checklist.webp') center center / contain no-repeat;
+      background: url('src/img/Icono checklist.png') center center / contain no-repeat;
       filter: sepia(0.35) saturate(0.8);
     }
 
@@ -512,7 +532,9 @@
     }
 
     .process-card img {
-      width: 66px;
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
       margin: 0 auto 16px;
     }
 
@@ -655,6 +677,7 @@
         display: none;
         flex-direction: column;
         align-items: flex-start;
+        overflow: visible;
       }
       .nav-links.active { display: flex; }
       .hero-content { min-height: auto; }
@@ -662,7 +685,10 @@
       .steps-grid,
       .requirements-grid,
       .process-grid { grid-template-columns: 1fr; }
-      .band-grid img { width: 68px; }
+      .band-grid img {
+        width: 64px;
+        height: 64px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -688,7 +714,7 @@
     <div class="nav-wrap">
       <div class="container nav">
         <a class="brand" href="index.html#inicio" aria-label="Catedral Metropolitana de Chihuahua">
-          <img src="src/img/Logo Catedral.webp" alt="Logo de Catedral Metropolitana de Chihuahua" />
+          <img src="src/img/Logo Catedral.png" alt="Logo de Catedral Metropolitana de Chihuahua" />
         </a>
         <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
         <nav class="nav-links" id="navLinks">
@@ -725,9 +751,9 @@
 
   <section class="info-band">
     <div class="container band-grid">
-      <img src="src/img/Seccion 2 Iconos.webp" alt="Ícono decorativo matrimonial" />
+      <img src="src/img/Seccion 2 Iconos.png" alt="Ícono decorativo matrimonial" />
       <strong>Para trámites se requiere documentación<br />completa en original y copia</strong>
-      <img src="src/img/Seccion 2 Iconos.webp" alt="Ícono decorativo matrimonial" />
+      <img src="src/img/Seccion 2 Iconos.png" alt="Ícono decorativo matrimonial" />
     </div>
   </section>
 
@@ -738,19 +764,19 @@
 
         <div class="steps-grid">
           <article class="step-card">
-            <img src="src/img/Seccion 3 Icono Consulta Calendario.webp" alt="Ícono consulta calendario" />
+            <img src="src/img/Seccion 3 Icono Consulta Calendario.png" alt="Ícono consulta calendario" />
             <h3>Consulta<br />calendario</h3>
             <p>Revisa fechas ya apartadas y elige 2–3 opciones.</p>
           </article>
 
           <article class="step-card">
-            <img src="src/img/Seccion 3 Icono Reune tu Documentacion (1).webp" alt="Ícono reúne tu documentación" />
+            <img src="src/img/Seccion 3 Icono Reune tu Documentacion (1).png" alt="Ícono reúne tu documentación" />
             <h3>Reúne tu<br />documentación</h3>
             <p>Trae tu papelería completa (original y copia) para avanzar sin vueltas.</p>
           </article>
 
           <article class="step-card">
-            <img src="src/img/Seccion 3 Icono Acude a la Oficina Parroquial.webp" alt="Ícono acude a la oficina parroquial" />
+            <img src="src/img/Seccion 3 Icono Acude a la Oficina Parroquial.png" alt="Ícono acude a la oficina parroquial" />
             <h3>Acude a la oficina<br />parroquial</h3>
             <p>Agenda tu fecha de manera presencial con nombres completos y teléfonos.</p>
           </article>
@@ -836,31 +862,31 @@
 
         <div class="process-grid">
           <article class="process-card">
-            <img src="src/img/Seccion 6 Icono Revision Inicial en la Oficina.webp" alt="Ícono revisión inicial en oficina" />
+            <img src="src/img/Seccion 6 Icono Revision Inicial en la Oficina.png" alt="Ícono revisión inicial en oficina" />
             <h3>Revisión inicial<br />en oficina</h3>
             <button class="btn btn--gold" data-modal="modal-revision">Ver más</button>
           </article>
 
           <article class="process-card">
-            <img src="src/img/Seccion 6 Icono Platicas de Preparacion.webp" alt="Ícono expediente en tu parroquia" />
+            <img src="src/img/Seccion 6 Icono Platicas de Preparacion.png" alt="Ícono expediente en tu parroquia" />
             <h3>Expediente en<br />tu parroquia</h3>
             <button class="btn btn--gold" data-modal="modal-expediente">Ver más</button>
           </article>
 
           <article class="process-card">
-            <img src="src/img/Seccion 6 Icono Confirmacion de fecha hora.webp" alt="Ícono cartas y amonestaciones" />
+            <img src="src/img/Seccion 6 Icono Confirmacion de fecha hora.png" alt="Ícono cartas y amonestaciones" />
             <h3>Cartas y<br />amonestaciones</h3>
             <button class="btn btn--gold" data-modal="modal-cartas">Ver más</button>
           </article>
 
           <article class="process-card">
-            <img src="src/img/Seccion 6 Icono Entrega final de documentacion.webp" alt="Ícono entrega final de documentación" />
+            <img src="src/img/Seccion 6 Icono Entrega final de documentacion.png" alt="Ícono entrega final de documentación" />
             <h3>Entrega final de<br />documentación</h3>
             <button class="btn btn--gold" data-modal="modal-entrega">Ver más</button>
           </article>
 
           <article class="process-card">
-            <img src="src/img/Seccion 6 Icono Celebracion.webp" alt="Ícono celebración" />
+            <img src="src/img/Seccion 6 Icono Celebracion.png" alt="Ícono celebración" />
             <h3>Celebración</h3>
             <button class="btn btn--gold" data-modal="modal-celebracion">Ver más</button>
           </article>

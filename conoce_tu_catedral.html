@@ -14,20 +14,6 @@
       font-display: swap;
     }
     @font-face {
-      font-family: 'CharterCustom';
-      src: url('src/fonts/Charter Regular.ttf') format('truetype');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'CharterCustom';
-      src: url('src/fonts/Charter Regular.ttf') format('truetype');
-      font-weight: 700;
-      font-style: italic;
-      font-display: swap;
-    }
-    @font-face {
       font-family: 'SnellRoundhandCustom';
       src: url('src/fonts/Snell Roundhand Regular.ttf') format('truetype');
       font-weight: 400;
@@ -49,6 +35,7 @@
       --white: #ffffff;
       --shadow: 0 18px 50px rgba(34, 23, 15, 0.12);
       --max: 1180px;
+      --cafe-section-bg: radial-gradient(circle at 18% 35%, rgba(162, 95, 69, 0.32), transparent 28%), linear-gradient(90deg, #4b2f21 0%, #6c4a38 52%, #4b2f21 100%);
     }
 
     * { box-sizing: border-box; }
@@ -58,6 +45,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'CharterCustom', Georgia, serif;
+      font-weight: 400;
       line-height: 1.55;
     }
 
@@ -72,6 +60,9 @@
 
     .btn {
       display: inline-flex;
+      font-family: 'CharterCustom', Georgia, serif;
+      font-weight: 700;
+      font-synthesis: weight;
       align-items: center;
       justify-content: center;
       min-height: 48px;
@@ -121,7 +112,8 @@
     .nav-wrap {
       position: sticky;
       top: 0;
-      z-index: 30;
+      z-index: 200;
+      overflow: visible;
       backdrop-filter: blur(10px);
       background: linear-gradient(180deg, rgba(17,14,11,0.58), rgba(17,14,11,0.2));
       border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -187,10 +179,10 @@
 
     .nav-dropdown-panel {
       position: absolute;
-      top: calc(100% + 10px);
+      top: 100%;
       left: 0;
       min-width: 220px;
-      padding: 10px 0;
+      padding: 12px 0 10px;
       background: rgba(17, 14, 11, 0.97);
       color: var(--white);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -200,7 +192,7 @@
       visibility: hidden;
       transform: translateY(-6px);
       transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-      z-index: 40;
+      z-index: 210;
     }
 
     @media (min-width: 821px) {
@@ -285,13 +277,38 @@
 
     .hero {
       position: relative;
+      isolation: isolate;
       min-height: 100svh;
       color: var(--white);
+      background-color: #1f1814;
+      background-image: url('src/img/Seccion 1 Background.png');
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: visible;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
       background:
         linear-gradient(180deg, rgba(123, 82, 81, 0.34) 0%, rgba(123,82,81,0.18) 18%, rgba(41,28,20,0.46) 100%),
-        linear-gradient(90deg, rgba(19,15,12,0.62) 0%, rgba(19,15,12,0.22) 40%, rgba(19,15,12,0.08) 100%),
-        url('src/img/Seccion 1 Background.webp') center center / cover no-repeat;
-      overflow: hidden;
+        linear-gradient(90deg, rgba(19,15,12,0.62) 0%, rgba(19,15,12,0.22) 40%, rgba(19,15,12,0.08) 100%);
+    }
+
+    .hero > * {
+      position: relative;
+    }
+
+    .hero .nav-wrap {
+      z-index: 200;
+    }
+
+    .hero .hero-content {
+      z-index: 1;
     }
 
     .hero-content {
@@ -310,7 +327,7 @@
 
     .hero-title {
       margin: 0 0 14px;
-      font-size: clamp(3rem, 6.4vw, 5.5rem);
+      font-size: clamp(2.6rem, 5.35vw, 4.55rem);
       line-height: 0.95;
       font-weight: 700;
       letter-spacing: -0.04em;
@@ -330,7 +347,7 @@
     }
 
     .invitation-band {
-      background: linear-gradient(90deg, #7f5337 0%, #8a603f 50%, #7f5337 100%);
+      background: var(--cafe-section-bg);
       color: #fff7ec;
       padding: 28px 0;
     }
@@ -344,7 +361,9 @@
     }
 
     .invitation-band img {
-      width: 84px;
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
       margin: 0 auto;
       opacity: 0.92;
     }
@@ -369,7 +388,9 @@
     }
 
     .feature-card img {
-      width: 62px;
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
       margin: 0 auto 16px;
     }
 
@@ -383,7 +404,7 @@
 
     .virtual-tour {
       color: var(--white);
-      background: radial-gradient(circle at 18% 35%, rgba(162, 95, 69, 0.32), transparent 28%), linear-gradient(90deg, #4b2f21 0%, #6c4a38 52%, #4b2f21 100%);
+      background: var(--cafe-section-bg);
     }
 
     .tour-grid {
@@ -449,8 +470,10 @@
     }
 
     .see-card img {
-      width: 60px;
-      margin: 0 auto 14px;
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      margin: 0 auto 16px;
     }
 
     .see-card h3 {
@@ -659,6 +682,7 @@
         display: none;
         flex-direction: column;
         align-items: flex-start;
+        overflow: visible;
       }
       .nav-links.active { display: flex; }
       .feature-grid,
@@ -667,7 +691,10 @@
       }
       .hero-content { min-height: auto; }
       .hero-copy { padding-top: 12vh; padding-bottom: 8vh; }
-      .invitation-band img { width: 70px; }
+      .invitation-band img {
+        width: 64px;
+        height: 64px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -694,7 +721,7 @@
     <div class="nav-wrap">
       <div class="container nav">
         <a class="brand" href="index.html#inicio" aria-label="Catedral Metropolitana de Chihuahua">
-          <img src="src/img/Logo Catedral.webp" alt="Logo de Catedral Metropolitana de Chihuahua" />
+          <img src="src/img/Logo Catedral.png" alt="Logo de Catedral Metropolitana de Chihuahua" />
         </a>
         <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
         <nav class="nav-links" id="navLinks">
@@ -731,24 +758,24 @@
 
   <section class="invitation-band">
     <div class="container inner">
-      <img src="src/img/Seccion 2 Icono.webp" alt="Símbolo decorativo religioso" onerror="this.style.display='none'" />
+      <img src="src/img/Seccion 2 Icono.png" alt="Símbolo decorativo religioso" onerror="this.style.display='none'" />
       <h2>Una puerta abierta a la fe</h2>
-      <img src="src/img/Seccion 2 Icono.webp" alt="Símbolo decorativo religioso" onerror="this.style.display='none'" />
+      <img src="src/img/Seccion 2 Icono.png" alt="Símbolo decorativo religioso" onerror="this.style.display='none'" />
     </div>
   </section>
 
   <section class="feature-strip">
     <div class="container feature-grid">
       <article class="feature-card">
-        <img src="src/img/Seccion 2 Icono Arquitectura.webp" alt="Ícono de arquitectura barroca" />
+        <img src="src/img/Seccion 2 Icono Arquitectura.png" alt="Ícono de arquitectura barroca" />
         <h3>Arquitectura barroca<br />en cantera</h3>
       </article>
       <article class="feature-card">
-        <img src="src/img/Seccion 2 Icono.webp" alt="Ícono de corazón del centro histórico" />
+        <img src="src/img/Seccion 2 Icono Corazon Centro Historico.png" alt="Ícono de corazón del centro histórico" />
         <h3>Corazón del<br />Centro Histórico</h3>
       </article>
       <article class="feature-card">
-        <img src="src/img/Seccion 2 Icono Sede de la Arquidiosesis.webp" alt="Ícono de sede de la arquidiócesis" />
+        <img src="src/img/Seccion 2 Icono Sede de la Arquidiosesis.png" alt="Ícono de sede de la arquidiócesis" />
         <h3>Sede de la<br />Arquidiócesis</h3>
       </article>
     </div>
@@ -767,7 +794,7 @@
           </ul>
         </div>
         <div class="tour-card">
-          <img src="src/img/Seccion 3 Imagen.webp" alt="Vista frontal de la Catedral Metropolitana de Chihuahua" />
+          <img src="src/img/Seccion 3 Imagen.png" alt="Vista frontal de la Catedral Metropolitana de Chihuahua" />
           <div class="actions">
             <a class="btn btn--gold" href="https://kuula.co/share/collection/7vqxR?logo=1&info=1&fs=1&vr=1&zoom=1&autorotate=0.53&autop=60&thumbs=3&inst=0" target="_blank" rel="noopener noreferrer">Compartir este recorrido</a>
           </div>
@@ -780,19 +807,19 @@
         <h2 class="section-title">Qué ver en el recorrido</h2>
         <div class="see-grid">
           <article class="see-card">
-            <img src="src/img/Seccion 4 Icono Altar.webp" alt="Ícono altar y presbiterio" />
+            <img src="src/img/Seccion 4 Icono Altar.png" alt="Ícono altar y presbiterio" />
             <h3>Altar / presbiterio</h3>
           </article>
           <article class="see-card">
-            <img src="src/img/Seccion 4 Icono Nave Principal.webp" alt="Ícono nave principal" />
+            <img src="src/img/Seccion 4 Icono Nave Principal.png" alt="Ícono nave principal" />
             <h3>Nave principal</h3>
           </article>
           <article class="see-card">
-            <img src="src/img/Seccion 4 Icono Detalles de Cantera.webp" alt="Ícono detalles de cantera" />
+            <img src="src/img/Seccion 4 Icono Detalles de Cantera.png" alt="Ícono detalles de cantera" />
             <h3>Detalles de cantera<br />/ fachada</h3>
           </article>
           <article class="see-card">
-            <img src="src/img/Seccion 4 Icono Capillas.webp" alt="Ícono capillas y arte sacro" />
+            <img src="src/img/Seccion 4 Icono Capillas.png" alt="Ícono capillas y arte sacro" />
             <h3>Capillas<br />/ arte sacro</h3>
           </article>
         </div>
@@ -806,32 +833,32 @@
         </div>
 
         <div class="gallery-grid">
-          <button class="gallery-item" data-image="Galeria 1 Extended.webp" aria-label="Abrir imagen de galería 1">
-            <img src="src/img/Galeria 1 Preview.webp" alt="Torres de la Catedral al atardecer" />
+          <button class="gallery-item" data-image="Galeria 1 Extended.png" aria-label="Abrir imagen de galería 1">
+            <img src="src/img/Galeria 1 Preview.png" alt="Torres de la Catedral al atardecer" />
           </button>
-          <button class="gallery-item" data-image="Galeria 2 Extended.webp" aria-label="Abrir imagen de galería 2">
-            <img src="src/img/Galeria 2 Preview.webp" alt="Detalle de cantera de la fachada de la Catedral" />
+          <button class="gallery-item" data-image="Galeria 2 Extended.png" aria-label="Abrir imagen de galería 2">
+            <img src="src/img/Galeria 2 Preview.png" alt="Detalle de cantera de la fachada de la Catedral" />
           </button>
-          <button class="gallery-item" data-image="Galeria 3 Extended.webp" aria-label="Abrir imagen de galería 3">
-            <img src="src/img/Galeria 3 Preview.webp" alt="Nave principal de la Catedral" />
+          <button class="gallery-item" data-image="Galeria 3 Extended.png" aria-label="Abrir imagen de galería 3">
+            <img src="src/img/Galeria 3 Preview.png" alt="Nave principal de la Catedral" />
           </button>
-          <button class="gallery-item" data-image="Galeria 4 Extended.webp" aria-label="Abrir imagen de galería 4">
-            <img src="src/img/Galeria 4 Preview.webp" alt="Órgano y tubos de la Catedral" />
+          <button class="gallery-item" data-image="Galeria 4 Extended.png" aria-label="Abrir imagen de galería 4">
+            <img src="src/img/Galeria 4 Preview.png" alt="Órgano y tubos de la Catedral" />
           </button>
-          <button class="gallery-item" data-image="Galeria 5 Extended.webp" aria-label="Abrir imagen de galería 5">
-            <img src="src/img/Galeria 5 Preview.webp" alt="Detalles del techo y cúpula interior" />
+          <button class="gallery-item" data-image="Galeria 5 Extended.png" aria-label="Abrir imagen de galería 5">
+            <img src="src/img/Galeria 5 Preview.png" alt="Detalles del techo y cúpula interior" />
           </button>
-          <button class="gallery-item" data-image="Galeria 6 Extended.webp" aria-label="Abrir imagen de galería 6">
-            <img src="src/img/Galeria 6 Preview.webp" alt="Ventana y detalle arquitectónico interior" />
+          <button class="gallery-item" data-image="Galeria 6 Extended.png" aria-label="Abrir imagen de galería 6">
+            <img src="src/img/Galeria 6 Preview.png" alt="Ventana y detalle arquitectónico interior" />
           </button>
-          <button class="gallery-item" data-image="Galeria 7 Extended.webp" aria-label="Abrir imagen de galería 7">
-            <img src="src/img/Galeria 7 Preview.webp" alt="Detalle arquitectónico interior y bóveda" />
+          <button class="gallery-item" data-image="Galeria 7 Extended.png" aria-label="Abrir imagen de galería 7">
+            <img src="src/img/Galeria 7 Preview.png" alt="Detalle arquitectónico interior y bóveda" />
           </button>
-          <button class="gallery-item" data-image="Galeria 8 Extended.webp" aria-label="Abrir imagen de galería 8">
-            <img src="src/img/Galeria 8 Preview.webp" alt="Campanario de la Catedral" />
+          <button class="gallery-item" data-image="Galeria 8 Extended.png" aria-label="Abrir imagen de galería 8">
+            <img src="src/img/Galeria 8 Preview.png" alt="Campanario de la Catedral" />
           </button>
-          <button class="gallery-item" data-image="Galeria 9 Extended.webp" aria-label="Abrir imagen de galería 9">
-            <img src="src/img/Galeria 9 Preview.webp" alt="Cúpula exterior de la Catedral" />
+          <button class="gallery-item" data-image="Galeria 9 Extended.png" aria-label="Abrir imagen de galería 9">
+            <img src="src/img/Galeria 9 Preview.png" alt="Cúpula exterior de la Catedral" />
           </button>
         </div>
       </div>
