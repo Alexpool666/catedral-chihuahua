@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Conoce tu Catedral | Catedral Metropolitana de Chihuahua</title>
-  <meta name="description" content="Historia, arte y fe en el corazón de Chihuahua. Explora el recorrido virtual y la galería de la Catedral Metropolitana." />
+  <title>Matrimonio | Catedral Metropolitana de Chihuahua</title>
+  <meta name="description" content="Guía y requisitos para celebrar el Sacramento del Matrimonio en Catedral." />
   <style>
     @font-face {
       font-family: 'CharterCustom';
@@ -36,16 +36,16 @@
     }
 
     :root {
-      --bg: #f5f1e8;
-      --bg-soft: #f0dfd2;
-      --cream: #faf7f2;
-      --sand: #d9bea3;
-      --gold: #8d744a;
-      --gold-dark: #6f5939;
-      --brown: #4f392b;
-      --brown-deep: #36241b;
-      --text: #5a4639;
-      --line: rgba(111, 89, 57, 0.18);
+      --bg: #f5f1e7;
+      --bg-soft: #f2ede2;
+      --cream: #faf7ef;
+      --sand: #d8c189;
+      --gold: #8c7441;
+      --gold-dark: #6f5a34;
+      --brown: #5a4633;
+      --brown-deep: #33241a;
+      --text: #5d4b3c;
+      --line: rgba(111, 90, 52, 0.18);
       --white: #ffffff;
       --shadow: 0 18px 50px rgba(34, 23, 15, 0.12);
       --max: 1180px;
@@ -76,7 +76,7 @@
       justify-content: center;
       min-height: 48px;
       padding: 12px 24px;
-      border: 1px solid rgba(255,255,255,0.52);
+      border: 1px solid rgba(255,255,255,0.54);
       background: transparent;
       color: var(--white);
       text-transform: uppercase;
@@ -95,6 +95,7 @@
       background: rgba(157, 121, 83, 0.95);
       border-color: rgba(157, 121, 83, 0.95);
       color: var(--white);
+      box-shadow: 0 10px 20px rgba(56, 40, 24, 0.12);
     }
 
     .btn--gold:hover {
@@ -102,20 +103,22 @@
       border-color: var(--gold-dark);
     }
 
-    .section { padding: 92px 0; }
+    .section { padding: 88px 0; }
 
     .section-title {
-      margin: 0 0 14px;
-      font-size: clamp(2.2rem, 3.4vw, 3.5rem);
+      margin: 0 0 18px;
+      font-size: clamp(2.2rem, 3.6vw, 3.5rem);
       line-height: 1.04;
       color: var(--brown);
       font-weight: 700;
+      text-align: center;
     }
 
     .section-subtitle {
       margin: 0;
       font-size: 1.08rem;
-      color: rgba(90, 70, 57, 0.84);
+      color: rgba(93,75,60,0.84);
+      text-align: center;
     }
 
     .nav-wrap {
@@ -288,15 +291,15 @@
       min-height: 100svh;
       color: var(--white);
       background:
-        linear-gradient(180deg, rgba(123, 82, 81, 0.34) 0%, rgba(123,82,81,0.18) 18%, rgba(41,28,20,0.46) 100%),
-        linear-gradient(90deg, rgba(19,15,12,0.62) 0%, rgba(19,15,12,0.22) 40%, rgba(19,15,12,0.08) 100%),
-        url('src/img/Seccion 1 Background.webp') center center / cover no-repeat;
+        linear-gradient(180deg, rgba(26,18,12,0.26) 0%, rgba(26,18,12,0.3) 24%, rgba(26,18,12,0.5) 100%),
+        linear-gradient(90deg, rgba(108,45,44,0.38) 0%, rgba(22,17,12,0.36) 38%, rgba(22,17,12,0.14) 68%),
+        url('src/img/Seccion 1 Background (4).webp') center center / cover no-repeat;
       overflow: hidden;
     }
 
     .hero-content {
       display: grid;
-      grid-template-columns: minmax(280px, 540px) 1fr;
+      grid-template-columns: minmax(280px, 560px) 1fr;
       gap: 24px;
       align-items: center;
       min-height: calc(100svh - 86px);
@@ -309,18 +312,18 @@
     }
 
     .hero-title {
-      margin: 0 0 14px;
-      font-size: clamp(3rem, 6.4vw, 5.5rem);
-      line-height: 0.95;
+      margin: 0 0 12px;
+      font-size: clamp(3rem, 6.4vw, 5.4rem);
+      line-height: 0.96;
       font-weight: 700;
       letter-spacing: -0.04em;
     }
 
     .hero-subtitle {
       margin: 0 0 34px;
-      font-size: clamp(1.08rem, 1.8vw, 1.36rem);
+      font-size: clamp(1.08rem, 1.8vw, 1.34rem);
       color: rgba(255,255,255,0.92);
-      max-width: 360px;
+      max-width: 430px;
     }
 
     .hero-actions {
@@ -329,195 +332,212 @@
       flex-wrap: wrap;
     }
 
-    .invitation-band {
-      background: linear-gradient(90deg, #7f5337 0%, #8a603f 50%, #7f5337 100%);
-      color: #fff7ec;
-      padding: 28px 0;
+    .info-band {
+      background: linear-gradient(90deg, #7f5b2d 0%, #8f7440 50%, #7f5b2d 100%);
+      color: #fff8ed;
+      text-align: center;
+      padding: 22px 0 18px;
     }
 
-    .invitation-band .inner {
+    .band-grid {
       display: grid;
-      grid-template-columns: 120px 1fr 120px;
+      grid-template-columns: 110px 1fr 110px;
       gap: 20px;
       align-items: center;
-      text-align: center;
     }
 
-    .invitation-band img {
-      width: 84px;
+    .band-grid img {
+      width: 74px;
       margin: 0 auto;
       opacity: 0.92;
     }
 
-    .invitation-band h2 {
-      margin: 0;
-      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
-      line-height: 1.1;
+    .info-band strong {
+      display: block;
+      font-size: 1.28rem;
       font-weight: 700;
+      line-height: 1.35;
     }
 
-    .feature-strip {
-      background: var(--bg-soft);
-      padding: 60px 0;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+    .how-start {
+      background: radial-gradient(circle at 20% 30%, rgba(221,205,150,0.22), transparent 30%), linear-gradient(180deg, #f7f3e5 0%, #f3efdf 100%);
       text-align: center;
     }
 
-    .feature-card img {
+    .steps-grid {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 34px;
+    }
+
+    .step-card {
+      padding: 10px 18px;
+    }
+
+    .step-card img {
       width: 62px;
       margin: 0 auto 16px;
     }
 
-    .feature-card h3 {
-      margin: 0;
-      font-size: 1.35rem;
-      line-height: 1.2;
+    .step-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.42rem;
+      line-height: 1.18;
       color: var(--brown);
-      font-weight: 400;
-    }
-
-    .virtual-tour {
-      color: var(--white);
-      background: radial-gradient(circle at 18% 35%, rgba(162, 95, 69, 0.32), transparent 28%), linear-gradient(90deg, #4b2f21 0%, #6c4a38 52%, #4b2f21 100%);
-    }
-
-    .tour-grid {
-      display: grid;
-      grid-template-columns: 0.78fr 1.22fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    .tour-copy h2 {
-      margin: 0 0 16px;
-      font-size: clamp(2.4rem, 4vw, 4rem);
-      line-height: 1.02;
       font-weight: 700;
     }
 
-    .tour-copy p {
+    .step-card p {
+      margin: 0;
+      font-size: 1rem;
+      color: rgba(93,75,60,0.82);
+      max-width: 260px;
+      margin-inline: auto;
+    }
+
+    .calendar-section {
+      background: linear-gradient(180deg, #f7f6f4 0%, #f1efee 100%);
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .calendar-copy h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2.2rem, 3.8vw, 3.8rem);
+      line-height: 1.02;
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .calendar-copy p {
       margin: 0 0 16px;
-      font-size: 1.12rem;
-      color: rgba(255,255,255,0.9);
-      max-width: 320px;
+      font-size: 1.1rem;
+      color: rgba(93,75,60,0.9);
+      max-width: 360px;
     }
 
-    .tour-copy ul {
-      margin: 24px 0 0;
-      padding-left: 18px;
-      color: rgba(255,255,255,0.88);
+    .calendar-copy .small {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: rgba(93,75,60,0.9);
     }
 
-    .tour-copy li { margin-bottom: 12px; }
+    .calendar-frame {
+      display: grid;
+      justify-items: end;
+    }
 
-    .tour-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.14);
-      padding: 18px;
+    .calendar-embed {
+      width: 100%;
+      max-width: 760px;
+      border: 0;
+      min-height: 500px;
+      background: #fff;
       box-shadow: var(--shadow);
     }
 
-    .tour-card img {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
+    .requirements {
+      background: #e7dcc0;
     }
 
-    .tour-card .actions {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .see-route {
-      background: #ecd2bf;
-      text-align: center;
-      padding-top: 80px;
-      padding-bottom: 80px;
-    }
-
-    .see-grid {
-      margin-top: 34px;
+    .requirements-grid {
+      margin-top: 30px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 28px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 54px;
     }
 
-    .see-card img {
-      width: 60px;
-      margin: 0 auto 14px;
-    }
-
-    .see-card h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      line-height: 1.2;
+    .requirements h3 {
+      margin: 0 0 18px;
+      font-size: 1.25rem;
       color: var(--brown);
       font-weight: 400;
     }
 
-    .gallery {
-      background: linear-gradient(180deg, #fbfaf8 0%, #f7f5f2 100%);
-    }
-
-    .gallery-head {
-      text-align: center;
-      margin-bottom: 34px;
-    }
-
-    .gallery-grid {
+    .check-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 16px;
     }
 
-    .gallery-item {
+    .check-list li {
       position: relative;
-      background: #fff;
-      border: 1px solid var(--line);
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 8px 22px rgba(39, 28, 20, 0.06);
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      padding-left: 36px;
+      font-size: 1.08rem;
+      color: var(--brown);
+      font-weight: 700;
     }
 
-    .gallery-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 34px rgba(39, 28, 20, 0.12);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-    }
-
-    .gallery-item::after {
-      content: 'Ver imagen';
+    .check-list li::before {
+      content: '';
       position: absolute;
-      inset: auto 14px 14px auto;
-      font-size: 0.76rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 8px 10px;
-      background: rgba(20, 13, 9, 0.62);
-      color: var(--white);
-      opacity: 0;
-      transition: opacity 0.22s ease;
+      left: 0;
+      top: 0.12em;
+      width: 22px;
+      height: 22px;
+      background: url('src/img/Icono checklist.webp') center center / contain no-repeat;
+      filter: sepia(0.35) saturate(0.8);
     }
 
-    .gallery-item:hover::after { opacity: 1; }
+    .requirements .plain-list {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .requirements .plain-list li {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .process {
+      background: linear-gradient(180deg, #f9f8f4 0%, #f3f2ed 100%);
+      text-align: center;
+    }
+
+    .process-grid {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+    }
+
+    .process-card img {
+      width: 66px;
+      margin: 0 auto 16px;
+    }
+
+    .process-card h3 {
+      margin: 0 0 18px;
+      font-size: 1.18rem;
+      line-height: 1.16;
+      color: var(--brown);
+      font-weight: 700;
+      min-height: 56px;
+    }
+
+    .process-card .btn--gold {
+      min-height: 42px;
+      padding: 10px 18px;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 1.05rem;
+    }
 
     footer {
       color: var(--white);
       background: radial-gradient(circle at 20% 30%, rgba(140,97,42,0.22), transparent 32%), linear-gradient(180deg, #2b1d14 0%, #1b120d 100%);
       padding: 58px 0 42px;
+      min-height: 320px;
     }
 
     .footer-title {
@@ -574,21 +594,12 @@
     .modal.active { display: flex; }
 
     .modal-card {
-      width: min(100%, 640px);
-      max-height: min(88vh, 980px);
-      overflow: auto;
+      width: min(100%, 620px);
       background: linear-gradient(180deg, #fbf8f0 0%, #f6f1e7 100%);
       border: 1px solid rgba(111,90,52,0.18);
       box-shadow: 0 28px 70px rgba(26, 19, 11, 0.32);
       position: relative;
       padding: 28px 28px 32px;
-    }
-
-    .modal-card.image-modal {
-      width: min(100%, 1080px);
-      padding: 18px;
-      background: rgba(22, 16, 12, 0.98);
-      border: 1px solid rgba(255,255,255,0.1);
     }
 
     .modal-close {
@@ -602,13 +613,6 @@
       color: var(--gold-dark);
       font-size: 1.7rem;
       cursor: pointer;
-      z-index: 2;
-    }
-
-    .image-modal .modal-close {
-      color: var(--white);
-      background: rgba(255,255,255,0.08);
-      border-radius: 999px;
     }
 
     .modal h3 {
@@ -618,33 +622,25 @@
       color: var(--brown);
     }
 
-    .modal h4 {
-      margin: 18px 0 8px;
-      font-size: 1.1rem;
-      color: var(--brown);
-    }
-
     .modal p {
       margin: 0 0 12px;
-      font-size: 1.02rem;
+      font-size: 1.04rem;
       color: rgba(90, 70, 57, 0.9);
     }
 
-    .image-modal img {
-      width: 100%;
-      max-height: 82vh;
-      object-fit: contain;
-      margin: 0 auto;
+    @media (max-width: 1180px) {
+      .process-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
     @media (max-width: 1080px) {
-      .tour-grid,
-      .hero-content {
+      .hero-content,
+      .calendar-grid,
+      .band-grid {
         grid-template-columns: 1fr;
       }
-      .see-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .feature-grid { gap: 22px; }
+      .requirements-grid,
+      .steps-grid { gap: 32px; }
+      .calendar-frame { justify-items: start; }
     }
 
     @media (max-width: 820px) {
@@ -661,13 +657,12 @@
         align-items: flex-start;
       }
       .nav-links.active { display: flex; }
-      .feature-grid,
-      .invitation-band .inner {
-        grid-template-columns: 1fr;
-      }
       .hero-content { min-height: auto; }
       .hero-copy { padding-top: 12vh; padding-bottom: 8vh; }
-      .invitation-band img { width: 70px; }
+      .steps-grid,
+      .requirements-grid,
+      .process-grid { grid-template-columns: 1fr; }
+      .band-grid img { width: 68px; }
     }
 
     @media (max-width: 640px) {
@@ -679,13 +674,12 @@
         align-items: stretch;
       }
       .btn { width: 100%; }
-      .see-grid,
-      .gallery-grid,
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
+      .calendar-embed { min-height: 420px; }
+      .check-list li,
+      .requirements .plain-list li,
+      .calendar-copy p { font-size: 1rem; }
+      .footer-links { gap: 18px; }
       .modal-card { padding: 24px 20px 26px; }
-      .modal-card.image-modal { padding: 12px; }
     }
   </style>
 </head>
@@ -698,7 +692,7 @@
         </a>
         <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
         <nav class="nav-links" id="navLinks">
-          <a href="/">Inicio</a>
+          <a href="index.html#inicio">Inicio</a>
           <div class="nav-dropdown">
             <button type="button" class="nav-dropdown-toggle" id="navSacramentalToggle" aria-expanded="false" aria-haspopup="true" aria-controls="navSacramentalMenu">
               Vida Sacramental <span class="caret" aria-hidden="true">▾</span>
@@ -711,128 +705,165 @@
             </div>
           </div>
           <a href="conoce_tu_catedral.html">Conoce tu Catedral</a>
-          <a href="arzobispo.html">Arzobispo</a>
+          <a href="arzobispo.html#inicio">Arzobispo</a>
         </nav>
       </div>
     </div>
 
     <div class="container hero-content">
       <div class="hero-copy">
-        <h1 class="hero-title">Conoce tu<br />Catedral</h1>
-        <p class="hero-subtitle">Historia, arte y fe en el corazón de Chihuahua.</p>
+        <h1 class="hero-title">Matrimonio</h1>
+        <p class="hero-subtitle">Guía y requisitos para celebrar el Sacramento del Matrimonio en Catedral.</p>
         <div class="hero-actions">
-          <a class="btn" href="https://kuula.co/share/collection/7vqxR?logo=1&info=1&fs=1&vr=1&zoom=1&autorotate=0.53&autop=60&thumbs=3&inst=0" target="_blank" rel="noopener noreferrer">Explorar recorrido virtual</a>
-          <button class="btn" data-modal="modal-horarios-ubicacion">Horarios / Ubicación</button>
+          <a class="btn" href="#calendario-bodas">Ver fechas disponibles</a>
+          <button class="btn" data-modal="modal-contacto">Contactar oficina</button>
         </div>
       </div>
       <div></div>
     </div>
   </header>
 
-  <section class="invitation-band">
-    <div class="container inner">
-      <img src="src/img/Seccion 2 Icono.webp" alt="Símbolo decorativo religioso" onerror="this.style.display='none'" />
-      <h2>Una puerta abierta a la fe</h2>
-      <img src="src/img/Seccion 2 Icono.webp" alt="Símbolo decorativo religioso" onerror="this.style.display='none'" />
-    </div>
-  </section>
-
-  <section class="feature-strip">
-    <div class="container feature-grid">
-      <article class="feature-card">
-        <img src="src/img/Seccion 2 Icono Arquitectura.webp" alt="Ícono de arquitectura barroca" />
-        <h3>Arquitectura barroca<br />en cantera</h3>
-      </article>
-      <article class="feature-card">
-        <img src="src/img/Seccion 2 Icono.webp" alt="Ícono de corazón del centro histórico" />
-        <h3>Corazón del<br />Centro Histórico</h3>
-      </article>
-      <article class="feature-card">
-        <img src="src/img/Seccion 2 Icono Sede de la Arquidiosesis.webp" alt="Ícono de sede de la arquidiócesis" />
-        <h3>Sede de la<br />Arquidiócesis</h3>
-      </article>
+  <section class="info-band">
+    <div class="container band-grid">
+      <img src="src/img/Seccion 2 Iconos.webp" alt="Ícono decorativo matrimonial" />
+      <strong>Para trámites se requiere documentación<br />completa en original y copia</strong>
+      <img src="src/img/Seccion 2 Iconos.webp" alt="Ícono decorativo matrimonial" />
     </div>
   </section>
 
   <main>
-    <section class="section virtual-tour">
-      <div class="container tour-grid">
-        <div class="tour-copy">
-          <h2>Recorrido virtual</h2>
-          <p>Explora la Catedral a tu ritmo desde cualquier lugar.</p>
-          <ul>
-            <li>Desliza para mirar a tu alrededor.</li>
-            <li>Haz clic en los puntos para avanzar.</li>
-            <li>Pantalla completa recomendada.</li>
-          </ul>
+    <section class="section how-start">
+      <div class="container">
+        <h2 class="section-title">Cómo iniciar</h2>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <img src="src/img/Seccion 3 Icono Consulta Calendario.webp" alt="Ícono consulta calendario" />
+            <h3>Consulta<br />calendario</h3>
+            <p>Revisa fechas ya apartadas y elige 2–3 opciones.</p>
+          </article>
+
+          <article class="step-card">
+            <img src="src/img/Seccion 3 Icono Reune tu Documentacion (1).webp" alt="Ícono reúne tu documentación" />
+            <h3>Reúne tu<br />documentación</h3>
+            <p>Trae tu papelería completa (original y copia) para avanzar sin vueltas.</p>
+          </article>
+
+          <article class="step-card">
+            <img src="src/img/Seccion 3 Icono Acude a la Oficina Parroquial.webp" alt="Ícono acude a la oficina parroquial" />
+            <h3>Acude a la oficina<br />parroquial</h3>
+            <p>Agenda tu fecha de manera presencial con nombres completos y teléfonos.</p>
+          </article>
         </div>
-        <div class="tour-card">
-          <img src="src/img/Seccion 3 Imagen.webp" alt="Vista frontal de la Catedral Metropolitana de Chihuahua" />
-          <div class="actions">
-            <a class="btn btn--gold" href="https://kuula.co/share/collection/7vqxR?logo=1&info=1&fs=1&vr=1&zoom=1&autorotate=0.53&autop=60&thumbs=3&inst=0" target="_blank" rel="noopener noreferrer">Compartir este recorrido</a>
+      </div>
+    </section>
+
+    <section class="section calendar-section" id="calendario-bodas">
+      <div class="container calendar-grid">
+        <div class="calendar-copy">
+          <h2>Calendario de Bodas</h2>
+          <p>Este calendario muestra fechas ya reservadas durante el año. Para apartar o confirmar disponibilidad, comunícate con la oficina.</p>
+          <p class="small">Calendario informativo (solo lectura)</p>
+          <p class="small">La confirmación final y el apartado se realizan en oficina.</p>
+          <a class="btn btn--gold" href="https://calendar.google.com/calendar/embed?src=738eaca07530b9373d27b7bf0faf61393eefedca4425d1638c0f486602bafb64%40group.calendar.google.com&ctz=America%2FMexico_City" target="_blank" rel="noopener noreferrer">Compartir calendario</a>
+        </div>
+
+        <div class="calendar-frame">
+          <iframe
+            class="calendar-embed"
+            src="https://calendar.google.com/calendar/embed?src=738eaca07530b9373d27b7bf0faf61393eefedca4425d1638c0f486602bafb64%40group.calendar.google.com&ctz=America%2FMexico_City"
+            style="border: 0"
+            width="800"
+            height="600"
+            frameborder="0"
+            scrolling="no"
+            title="Calendario de bodas"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section requirements">
+      <div class="container">
+        <h2 class="section-title">Requisitos</h2>
+
+        <div class="requirements-grid">
+          <div>
+            <h3>Qué revisar antes de elegir fecha:</h3>
+            <ul class="check-list">
+              <li>Considera iniciar con 6 meses de anticipación (presentación matrimonial + trámites)</li>
+              <li>Evita fechas con alta demanda (fin de semana largo / temporada alta)</li>
+              <li>Ten lista tu documentación para poder abrir expediente y avanzar con cartas</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Solo se recibe documentación completa en original y copia; no se aceptan fotos ni escáner.</h3>
+            <ul class="check-list" style="margin-bottom:20px;">
+              <li>Novio y Novia (de ambos):</li>
+            </ul>
+            <ul class="plain-list">
+              <li>Acta actualizada de Bautismo</li>
+              <li>Acta de Confirmación</li>
+              <li>Acta de nacimiento reciente (no mayor a 6 meses)</li>
+              <li>INE (copia ampliada)</li>
+              <li>Constancia de preparación prematrimonial</li>
+              <li>Acta de matrimonio civil</li>
+              <li>3 fotos tamaño pasaporte a color</li>
+            </ul>
+            <ul class="check-list" style="margin-top:22px; margin-bottom:14px;">
+              <li>Testigos:</li>
+            </ul>
+            <ul class="plain-list">
+              <li>Para la presentación: 2 testigos de cada uno (preferencia familiares)</li>
+              <li>Para la firma en Catedral: 2 personas con identificación oficial con foto para firmar libros</li>
+            </ul>
+            <ul class="check-list" style="margin-top:22px; margin-bottom:14px;">
+              <li>Pláticas:</li>
+            </ul>
+            <ul class="plain-list">
+              <li>Preparación prematrimonial (constancia requerida)</li>
+              <li>Aportación: $1500.00 en especie (artículos de limpieza, oficina o despensa).</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="see-route">
+    <section class="section process">
       <div class="container">
-        <h2 class="section-title">Qué ver en el recorrido</h2>
-        <div class="see-grid">
-          <article class="see-card">
-            <img src="src/img/Seccion 4 Icono Altar.webp" alt="Ícono altar y presbiterio" />
-            <h3>Altar / presbiterio</h3>
-          </article>
-          <article class="see-card">
-            <img src="src/img/Seccion 4 Icono Nave Principal.webp" alt="Ícono nave principal" />
-            <h3>Nave principal</h3>
-          </article>
-          <article class="see-card">
-            <img src="src/img/Seccion 4 Icono Detalles de Cantera.webp" alt="Ícono detalles de cantera" />
-            <h3>Detalles de cantera<br />/ fachada</h3>
-          </article>
-          <article class="see-card">
-            <img src="src/img/Seccion 4 Icono Capillas.webp" alt="Ícono capillas y arte sacro" />
-            <h3>Capillas<br />/ arte sacro</h3>
-          </article>
-        </div>
-      </div>
-    </section>
+        <h2 class="section-title">Proceso paso a paso</h2>
 
-    <section class="section gallery">
-      <div class="container">
-        <div class="gallery-head">
-          <h2 class="section-title">Galería</h2>
-        </div>
+        <div class="process-grid">
+          <article class="process-card">
+            <img src="src/img/Seccion 6 Icono Revision Inicial en la Oficina.webp" alt="Ícono revisión inicial en oficina" />
+            <h3>Revisión inicial<br />en oficina</h3>
+            <button class="btn btn--gold" data-modal="modal-revision">Ver más</button>
+          </article>
 
-        <div class="gallery-grid">
-          <button class="gallery-item" data-image="Galeria 1 Extended.webp" aria-label="Abrir imagen de galería 1">
-            <img src="src/img/Galeria 1 Preview.webp" alt="Torres de la Catedral al atardecer" />
-          </button>
-          <button class="gallery-item" data-image="Galeria 2 Extended.webp" aria-label="Abrir imagen de galería 2">
-            <img src="src/img/Galeria 2 Preview.webp" alt="Detalle de cantera de la fachada de la Catedral" />
-          </button>
-          <button class="gallery-item" data-image="Galeria 3 Extended.webp" aria-label="Abrir imagen de galería 3">
-            <img src="src/img/Galeria 3 Preview.webp" alt="Nave principal de la Catedral" />
-          </button>
-          <button class="gallery-item" data-image="Galeria 4 Extended.webp" aria-label="Abrir imagen de galería 4">
-            <img src="src/img/Galeria 4 Preview.webp" alt="Órgano y tubos de la Catedral" />
-          </button>
-          <button class="gallery-item" data-image="Galeria 5 Extended.webp" aria-label="Abrir imagen de galería 5">
-            <img src="src/img/Galeria 5 Preview.webp" alt="Detalles del techo y cúpula interior" />
-          </button>
-          <button class="gallery-item" data-image="Galeria 6 Extended.webp" aria-label="Abrir imagen de galería 6">
-            <img src="src/img/Galeria 6 Preview.webp" alt="Ventana y detalle arquitectónico interior" />
-          </button>
-          <button class="gallery-item" data-image="Galeria 7 Extended.webp" aria-label="Abrir imagen de galería 7">
-            <img src="src/img/Galeria 7 Preview.webp" alt="Detalle arquitectónico interior y bóveda" />
-          </button>
-          <button class="gallery-item" data-image="Galeria 8 Extended.webp" aria-label="Abrir imagen de galería 8">
-            <img src="src/img/Galeria 8 Preview.webp" alt="Campanario de la Catedral" />
-          </button>
-          <button class="gallery-item" data-image="Galeria 9 Extended.webp" aria-label="Abrir imagen de galería 9">
-            <img src="src/img/Galeria 9 Preview.webp" alt="Cúpula exterior de la Catedral" />
-          </button>
+          <article class="process-card">
+            <img src="src/img/Seccion 6 Icono Platicas de Preparacion.webp" alt="Ícono expediente en tu parroquia" />
+            <h3>Expediente en<br />tu parroquia</h3>
+            <button class="btn btn--gold" data-modal="modal-expediente">Ver más</button>
+          </article>
+
+          <article class="process-card">
+            <img src="src/img/Seccion 6 Icono Confirmacion de fecha hora.webp" alt="Ícono cartas y amonestaciones" />
+            <h3>Cartas y<br />amonestaciones</h3>
+            <button class="btn btn--gold" data-modal="modal-cartas">Ver más</button>
+          </article>
+
+          <article class="process-card">
+            <img src="src/img/Seccion 6 Icono Entrega final de documentacion.webp" alt="Ícono entrega final de documentación" />
+            <h3>Entrega final de<br />documentación</h3>
+            <button class="btn btn--gold" data-modal="modal-entrega">Ver más</button>
+          </article>
+
+          <article class="process-card">
+            <img src="src/img/Seccion 6 Icono Celebracion.webp" alt="Ícono celebración" />
+            <h3>Celebración</h3>
+            <button class="btn btn--gold" data-modal="modal-celebracion">Ver más</button>
+          </article>
         </div>
       </div>
     </section>
@@ -855,29 +886,53 @@
     </div>
   </footer>
 
-  <div class="modal" id="modal-horarios-ubicacion" aria-hidden="true">
+  <div class="modal" id="modal-contacto" aria-hidden="true">
     <div class="modal-card">
       <button class="modal-close" aria-label="Cerrar">×</button>
-      <h3>Horarios</h3>
-      <h4>Misas</h4>
-      <p><strong>Lun a Vie:</strong> 7:00 am · 8:00 am · 12:00 pm · 7:15 pm</p>
-      <p><strong>Sáb:</strong> 7:00 am · 8:00 am · 6:30 pm · 8:00 pm</p>
-      <p><strong>Dom:</strong> 7:00 am · 8:00 am · 9:00 am · 10:00 am · 11:00 am · 12:00 pm · 1:00 pm · 2:00 pm · 5:00 pm · 6:00 pm · 7:00 pm · 8:00 pm</p>
-      <h4>Confesiones</h4>
-      <p><strong>Mar a Vie:</strong> 5:00 pm a 7:00 pm</p>
-      <h4>Oficina parroquial</h4>
-      <p><strong>Lun a Vie:</strong> 9:00 am a 2:00 pm</p>
-      <h4>Ubicación</h4>
-      <p><strong>Catedral Metropolitana de Chihuahua</strong></p>
-      <p>📍 Libertad #814, Col. Centro, C.P. 31000, Chihuahua, Chih.</p>
-      <p><a href="https://maps.app.goo.gl/9kLjdxJP5wy5yJ1v7" target="_blank" rel="noopener noreferrer">🗺️ Abrir en Google Maps</a></p>
+      <h3>Contáctanos</h3>
+      <p><strong>Oficina parroquial</strong></p>
+      <p><strong>Teléfono:</strong> 614 410 3877</p>
+      <p><strong>Horario de atención:</strong> Lun a Vie · 9:00 am a 2:00 pm</p>
     </div>
   </div>
 
-  <div class="modal" id="modal-gallery" aria-hidden="true">
-    <div class="modal-card image-modal">
+  <div class="modal" id="modal-revision" aria-hidden="true">
+    <div class="modal-card">
       <button class="modal-close" aria-label="Cerrar">×</button>
-      <img id="modalGalleryImage" src="" alt="Imagen ampliada de galería" />
+      <h3>Revisión inicial en oficina</h3>
+      <p>Agenda tu fecha en Catedral (presencial) con nombres completos y teléfonos.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-expediente" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Cerrar">×</button>
+      <h3>Expediente en tu parroquia</h3>
+      <p>Acude a tu parroquia territorial (novio o novia) para abrir expediente matrimonial.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-cartas" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Cerrar">×</button>
+      <h3>Cartas y amonestaciones</h3>
+      <p>Entrega la carta de pretraslado en Catedral, espera amonestaciones y presenta la carta de traslado definitivo.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-entrega" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Cerrar">×</button>
+      <h3>Entrega final de documentación</h3>
+      <p>Presenta papelería completa (original y copia) y confirma detalles.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-celebracion" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Cerrar">×</button>
+      <h3>Celebración</h3>
+      <p>En algunos horarios, la pareja debe asegurar sacerdote y coro para su celebración.</p>
     </div>
   </div>
 
@@ -944,19 +999,6 @@
         if (event.target === modal || event.target.classList.contains('modal-close')) {
           closeModal(modal);
         }
-      });
-    });
-
-    const galleryModal = document.getElementById('modal-gallery');
-    const galleryModalImage = document.getElementById('modalGalleryImage');
-
-    document.querySelectorAll('.gallery-item').forEach((item) => {
-      item.addEventListener('click', () => {
-        const imageSrc = item.getAttribute('data-image');
-        const img = item.querySelector('img');
-        galleryModalImage.src = 'src/img/' + imageSrc;
-        galleryModalImage.alt = img ? img.alt : 'Imagen ampliada de galería';
-        openModal(galleryModal);
       });
     });
 
