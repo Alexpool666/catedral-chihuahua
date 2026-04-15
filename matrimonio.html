@@ -544,6 +544,45 @@
       font-size: 1.05rem;
     }
 
+    .records {
+      background: linear-gradient(180deg, #f6f4f1 0%, #efefec 100%);
+    }
+
+    .records-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .records-image {
+      max-width: 430px;
+      box-shadow: var(--shadow);
+    }
+
+    .records-copy h2 {
+      margin: 0 0 16px;
+      font-size: clamp(2.2rem, 3.6vw, 3.6rem);
+      line-height: 1.02;
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .records-copy .line {
+      width: min(100%, 420px);
+      height: 1px;
+      background: #cda85b;
+      margin-bottom: 22px;
+    }
+
+    .records-copy p {
+      margin: 0 0 24px;
+      font-size: 1.14rem;
+      color: rgba(93,75,60,0.9);
+      font-weight: 700;
+      max-width: 440px;
+    }
+
     footer {
       color: var(--white);
       background: radial-gradient(circle at 20% 30%, rgba(140,97,42,0.22), transparent 32%), linear-gradient(180deg, #2b1d14 0%, #1b120d 100%);
@@ -646,11 +685,13 @@
     @media (max-width: 1080px) {
       .hero-content,
       .calendar-grid,
-      .band-grid {
+      .band-grid,
+      .records-grid {
         grid-template-columns: 1fr;
       }
       .requirements-grid,
       .steps-grid { gap: 32px; }
+      .records-image { max-width: 440px; }
       .calendar-frame { justify-items: start; }
     }
 
@@ -692,7 +733,8 @@
       .calendar-embed { min-height: 420px; }
       .check-list li,
       .requirements .plain-list li,
-      .calendar-copy p { font-size: 1rem; }
+      .calendar-copy p,
+      .records-copy p { font-size: 1rem; }
       .footer-links { gap: 18px; }
       .modal-card { padding: 24px 20px 26px; }
     }
@@ -882,6 +924,21 @@
         </div>
       </div>
     </section>
+
+    <section class="section records">
+      <div class="container records-grid">
+        <div class="records-image">
+          <img src="src/img/Seccion 6 constancias.png" alt="Ejemplo de constancia de Matrimonio" />
+        </div>
+
+        <div class="records-copy">
+          <h2>Constancias</h2>
+          <div class="line"></div>
+          <p>Si necesitas constancia de Matrimonio, se solicita y se recoge en oficina.</p>
+          <a class="btn btn--gold" href="https://wa.me/526149802392" target="_blank" rel="noopener noreferrer">Solicitar vía WhatsApp</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -895,8 +952,8 @@
       </div>
       <p style="text-align:center; margin:0; opacity:0.84;">Síguenos por redes sociales</p>
       <div class="socials">
-        <a href="#" aria-label="Instagram">⌁</a>
-        <a href="#" aria-label="Facebook">f</a>
+        
+        <a href="https://www.facebook.com/catedraldechihuahuaoficial" aria-label="Facebook">f</a>
       </div>
     </div>
   </footer>
