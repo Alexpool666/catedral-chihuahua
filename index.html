@@ -283,7 +283,7 @@
       min-height: 100svh;
       color: var(--white);
       background-color: #221c18;
-      background-image: url('src/img/Sección 1 Background.png');
+      background-image: url('src/img/Sección 1 Background.webp');
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -605,22 +605,24 @@
       align-items: start;
     }
 
+    .faq-heading {
+      grid-column: 1 / -1;
+      margin: 0 0 8px;
+      padding: 0 8px 12px;
+      font-size: 2rem;
+      color: var(--brown);
+      line-height: 1.1;
+      text-align: center;
+    }
+
     .faq-side {
-      min-height: 100%;
+      align-self: stretch;
+      min-height: 220px;
       background-image: url('src/img/Sección 6 Imagen Preguntas Frecuentes.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      padding: 26px;
-      display: flex;
-      align-items: end;
-    }
-
-    .faq-side h3 {
-      margin: 0;
-      font-size: 2rem;
-      color: var(--brown);
-      line-height: 1;
+      padding: 0;
     }
 
     .accordion-item { border-bottom: 1px solid rgba(111,90,52,0.18); }
@@ -1026,7 +1028,8 @@
       </div>
 
       <div class="container faq-wrap">
-        <div class="faq-side"><h3>Preguntas Frecuentes</h3></div>
+        <h3 class="faq-heading">Preguntas Frecuentes</h3>
+        <div class="faq-side" aria-hidden="true"></div>
         <div>
           <div class="accordion-item active"><button class="accordion-btn"><span>¿Quién firma los tarjetones de los niños y/o adultos que están en preparación para los Sacramentos?</span><span>+</span></button><div class="accordion-panel">Las hermanas religiosas y/o el Sacristán saldrán al atrio a sellar sus tarjetones después de cada Misa al dar la bendición final el Padre.</div></div>
           <div class="accordion-item"><button class="accordion-btn"><span>¿Para poder hablar con el Sacerdote qué debo hacer?</span><span>+</span></button><div class="accordion-panel">Lo mejor es que te acerques a la oficina parroquial, para que te concedan una cita.</div></div>
